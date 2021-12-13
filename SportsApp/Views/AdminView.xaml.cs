@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SportsApp.ViewModels;
+using SportsLibrary;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -17,9 +19,17 @@ namespace SportsApp.Views
     /// </summary>
     public partial class AdminView : Window
     {
+        Sports sports;
+        Teams teams;
+        SportViewModel vm;
+
         public AdminView()
         {
             InitializeComponent();
+            sports = new Sports();
+            teams = new Teams();
+            vm = new SportViewModel(sports, teams);
+
         }
     }
 }

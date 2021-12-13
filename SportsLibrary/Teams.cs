@@ -18,9 +18,19 @@ namespace SportsLibrary
 
         public string WhichSport { get; set; }
 
+        public List<Teams> TeamsList { get; set; }
+
         public List<Player> TeamOne { get; set; }
         public List<Player> TeamTwo { get; set; }
 
+        public Teams() { }
+
+        public Teams(string Name, int Number, string Team)
+        {
+            this.TeamName = Name;
+            this.NumberOfPlayers = Number;
+            this.WhichSport = Team;
+        }
 
     }
 }

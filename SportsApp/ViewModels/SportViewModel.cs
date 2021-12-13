@@ -8,21 +8,36 @@ namespace SportsApp.ViewModels
 {
     class SportViewModel : BaseViewModel
     {
-        
+        public Sports thissport = new Sports("", "");
+        public Teams thisteams = new Teams("", 0, "");
+
         ISports sport;
 
         public ICommand AddSportCommand { get; set; }
         public ICommand RemoveSportCommand { get; set; }
 
-        
-        public SportViewModel(ISports s)
+        Teams teams;
+
+        public ICommand AddTeamCommand { get; set; }
+        public ICommand RemoveTeamCommand { get; set; }
+        public ICommand AddTeamsToSportsCommand { get; set; }
+
+
+
+        public SportViewModel(ISports s, Teams t)
         {
             this.sport = s;
 
             AddSportCommand = new BasicCommand(ExecuteAddSport, CanExecuteAddSport);
             RemoveSportCommand = new BasicCommand(ExecuteRemoveSport, CanExecuteRemoveSport);
 
+            this.teams = t;
+            AddTeamCommand = new BasicCommand(ExecuteAddTeam, CanExecuteAddTeam);
+            RemoveTeamCommand = new BasicCommand(ExecuteRemoveTeam, CanExecuteRemoveTeam);
+            AddTeamsToSportsCommand = new BasicCommand(ExecuteAddTeamsToSports, CanExecuteAddTeamsToSports);
+
         }
+
 
         public string SportName
         {
@@ -62,7 +77,10 @@ namespace SportsApp.ViewModels
 
         private void ExecuteAddSport(object parameter)
         {
-
+            thissport.SportName = SportName;
+            thissport.SportDescription = SportDescription;
+            SportsList.Add(thissport);
+            OnPropertyChanged("SportList");
         }
 
         private bool CanExecuteRemoveSport(object parameter)
@@ -73,20 +91,6 @@ namespace SportsApp.ViewModels
         private void ExecuteRemoveSport(object parameter)
         {
 
-        }
-
-        Teams teams;
-
-        public ICommand AddTeamCommand { get; set; }
-        public ICommand RemoveTeamCommand { get; set; }
-        public ICommand AddTeamsToSportsCommand { get; set; }
-
-        public SportViewModel(Teams t)
-        {
-            this.teams = t;
-            AddTeamCommand = new BasicCommand(ExecuteAddTeam, CanExecuteAddTeam);
-            RemoveTeamCommand = new BasicCommand(ExecuteRemoveTeam, CanExecuteRemoveTeam);
-            AddTeamsToSportsCommand = new BasicCommand(ExecuteAddTeamsToSports, CanExecuteAddTeamsToSports);
         }
 
         public string TeamName
@@ -109,24 +113,22 @@ namespace SportsApp.ViewModels
             }
         }
 
-        public List<Player> TeamOne
+        public string WhichSport
         {
-            get { return this.teams.TeamOne; }
+            get { return this.teams.WhichSport; }
             set
             {
-                this.teams.TeamOne = value;
-                OnPropertyChanged();
-
+                this.teams.WhichSport = value;
             }
         }
 
-        public List<Player> TeamTwo
+        public List<Teams> TeamsList
         {
-            get { return this.teams.TeamTwo; }
+            get { return this.teams.TeamsList; }
             set
             {
-                this.teams.TeamTwo = value;
-                OnPropertyChanged();
+                this.teams.TeamsList = value;
+                OnPropertyChanged("TeamsList");
 
             }
         }
@@ -138,7 +140,12 @@ namespace SportsApp.ViewModels
 
         private void ExecuteAddTeam(object parameter)
         {
-
+            thisteams.TeamName = TeamName;
+            thisteams.NumberOfPlayers = NumberOfPlayers;
+            thisteams.WhichSport = WhichSport;
+            
+            TeamsList.Add(thisteams);
+            OnPropertyChanged("TeamsList");
         }
 
         private bool CanExecuteRemoveTeam(object parameter)
