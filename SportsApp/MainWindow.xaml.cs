@@ -24,5 +24,23 @@ namespace SportsApp
         {
             InitializeComponent();
         }
+
+        private void CMSportbtn_Click(object sender, RoutedEventArgs e)
+        {
+            WPFSport sportwindow = new WPFSport();
+            sportwindow.Show();
+        }
+
+        private void CMPlayerbtn_Click(object sender, RoutedEventArgs e)
+        {
+            WPFPlayer sportwindow = new WPFPlayer();
+            sportwindow.Show();
+        }
+
+        private void CMTeambtn_Click(object sender, RoutedEventArgs e)
+        {
+            WPFTeam teamwindow = new WPFTeam();
+            teamwindow.Show();
+        }
     }
 }

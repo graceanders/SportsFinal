@@ -16,6 +16,8 @@ namespace SportsLibrary
         public string TeamName { get; set; }
         public int NumberOfPlayers { get; set; }
 
+        public string WhichSport { get; set; }
+
         public List<Player> TeamOne { get; set; }
         public List<Player> TeamTwo { get; set; }
 

@@ -17,6 +17,7 @@ namespace SportsLibrary
         public void RemovePlayer(List<Player> ListName) 
         {
             ListName.Remove(this.thisplayer);
+
         }
 
         public void AddPlayer(List<Player> ListName)
