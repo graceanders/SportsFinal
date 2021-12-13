@@ -33,6 +33,7 @@ namespace SportsLibrary
 
             this.SportName = jsonSports.SportName;
             this.SportDescription = jsonSports.SportDescription;
+            this.SportsList = jsonSports.SportsList;
 
         }
     }

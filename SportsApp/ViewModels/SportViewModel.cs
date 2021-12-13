@@ -11,33 +11,45 @@ namespace SportsApp.ViewModels
         public Sports thissport = new Sports("", "");
         public Teams thisteams = new Teams("", 0, "");
 
-        ISports sport;
+        Sports sport;
 
         public ICommand AddSportCommand { get; set; }
         public ICommand RemoveSportCommand { get; set; }
+
+        public ICommand SaveSportsCommand { get; set; }
+        public ICommand LoadSportsCommand { get; set; }
 
         Teams teams;
 
         public ICommand AddTeamCommand { get; set; }
         public ICommand RemoveTeamCommand { get; set; }
-        public ICommand AddTeamsToSportsCommand { get; set; }
+        //public ICommand AddTeamsToSportsCommand { get; set; }
 
+        public ICommand SaveTeamsCommand { get; set; }
+        public ICommand LoadTeamsCommand { get; set; }
 
+        bool SportsLoadExecutable;
+        bool TeamsLoadExecutable;
 
-        public SportViewModel(ISports s, Teams t)
+        public SportViewModel(Sports s, Teams t)
         {
             this.sport = s;
 
             AddSportCommand = new BasicCommand(ExecuteAddSport, CanExecuteAddSport);
             RemoveSportCommand = new BasicCommand(ExecuteRemoveSport, CanExecuteRemoveSport);
+            SaveSportsCommand = new BasicCommand(ExecuteSaveSport, CanExecuteSaveSport);
+            LoadSportsCommand = new BasicCommand(ExecuteLoadSport, CanExecuteLoadSport);
 
             this.teams = t;
             AddTeamCommand = new BasicCommand(ExecuteAddTeam, CanExecuteAddTeam);
             RemoveTeamCommand = new BasicCommand(ExecuteRemoveTeam, CanExecuteRemoveTeam);
-            AddTeamsToSportsCommand = new BasicCommand(ExecuteAddTeamsToSports, CanExecuteAddTeamsToSports);
+            //AddTeamsToSportsCommand = new BasicCommand(ExecuteAddTeamsToSports, CanExecuteAddTeamsToSports);
+            SaveTeamsCommand = new BasicCommand(ExecuteSaveTeams, CanExecuteSaveTeams);
+            LoadTeamsCommand = new BasicCommand(ExecuteLoadTeams, CanExecuteLoadTeams);
 
         }
 
+        //Sports
 
         public string SportName
         {
@@ -80,7 +92,7 @@ namespace SportsApp.ViewModels
             thissport.SportName = SportName;
             thissport.SportDescription = SportDescription;
             SportsList.Add(thissport);
-            OnPropertyChanged("SportList");
+            OnPropertyChanged("SportsList");
         }
 
         private bool CanExecuteRemoveSport(object parameter)
@@ -92,6 +104,43 @@ namespace SportsApp.ViewModels
         {
 
         }
+
+        //Sports Saving & Loading
+
+        private bool CanExecuteSaveSport(object parameter)
+        {
+            return true;
+        }
+
+        private void ExecuteSaveSport(object parameter)
+        {
+            sport.SaveSports(sport);
+            SportsLoadExecutable = true;
+        }
+
+        private bool CanExecuteLoadSport(object parameter)
+        {
+            if(SportsLoadExecutable == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+                
+        }
+
+        private void ExecuteLoadSport(object parameter)
+        {
+            sport.LoadSports();
+
+            OnPropertyChanged("Name");
+            OnPropertyChanged("Description");
+            OnPropertyChanged("SportsList");
+        }
+
+        //Teams
 
         public string TeamName
         {
@@ -140,9 +189,9 @@ namespace SportsApp.ViewModels
 
         private void ExecuteAddTeam(object parameter)
         {
-            thisteams.TeamName = TeamName;
-            thisteams.NumberOfPlayers = NumberOfPlayers;
-            thisteams.WhichSport = WhichSport;
+            thisteams.TeamName = this.TeamName;
+            thisteams.NumberOfPlayers = this.NumberOfPlayers;
+            thisteams.WhichSport = this.WhichSport;
             
             TeamsList.Add(thisteams);
             OnPropertyChanged("TeamsList");
@@ -158,14 +207,48 @@ namespace SportsApp.ViewModels
 
         }
 
-        private bool CanExecuteAddTeamsToSports(object parameter)
+        //private bool CanExecuteAddTeamsToSports(object parameter)
+        //{
+        //    return true;
+        //}
+
+        //private void ExecuteAddTeamsToSports(object parameter)
+        //{
+
+        //}
+
+        //Teams Saving & Loading
+
+        private bool CanExecuteSaveTeams(object parameter)
         {
             return true;
         }
 
-        private void ExecuteAddTeamsToSports(object parameter)
+        private void ExecuteSaveTeams(object parameter)
         {
+            teams.SaveTeams(teams);
+            TeamsLoadExecutable = true;
+        }
 
+        private bool CanExecuteLoadTeams(object parameter)
+        {
+            if (TeamsLoadExecutable == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private void ExecuteLoadTeams(object parameter)
+        {
+            teams.LoadTeams();
+
+            OnPropertyChanged("Name");
+            OnPropertyChanged("Description");
+            OnPropertyChanged("SportsList");
         }
     }
 }

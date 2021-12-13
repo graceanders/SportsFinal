@@ -41,13 +41,14 @@ namespace SportsLibrary
             json = JsonConvert.SerializeObject(t);
         }
 
-        public void LoadSports()
+        public void LoadTeams()
         {
             var jsonTeams = JsonConvert.DeserializeObject<Teams>(json);
 
             this.TeamName = jsonTeams.TeamName;
             this.NumberOfPlayers = jsonTeams.NumberOfPlayers;
             this.WhichSport = jsonTeams.WhichSport;
+            this.TeamsList = jsonTeams.TeamsList;
 
         }
     }
