@@ -14,7 +14,11 @@ namespace SportsApp.ViewModels
         public ICommand AddPlayerCommand { get; set; }
         public ICommand RemovePlayerCommand { get; set; }
 
-        public BindableCollection<Player> TeamOne { get; set; }
+        Player player1 = new Player("Gage", 32);
+        Player player2 = new Player("Weaton", 54);
+        Player player3 = new Player("Jamison", 10);
+
+        //public BindableCollection<Player> TeamOne { get; set; }
 
         public TeamViewModel(Teams t)
         {
@@ -24,14 +28,16 @@ namespace SportsApp.ViewModels
             RemovePlayerCommand = new BasicCommand(ExecuteRemovePlayer, CanExecuteRemovePlayer);
 
             //Populate DataGrid
-            TeamOne = new BindableCollection<Player>(teams.TeamOne);
+            //TeamOne = new BindableCollection<Player>(teams.Player());
 
-            
+
         }
 
         public void TestAddToList()
         {
-            
+            teams.TeamOne.Add(player1);
+            teams.TeamOne.Add(player2);
+            teams.TeamOne.Add(player3);
         }
 
         private bool CanExecuteAddPlayer(object paramater)

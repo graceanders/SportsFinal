@@ -17,12 +17,12 @@ namespace SportsApp.Views
     /// <summary>
     /// Interaction logic for TeamView.xaml
     /// </summary>
-    public partial class TeamView : Window
+    public partial class TeamPlayerView : Window
     {
         Teams teams;
         TeamViewModel vm;
 
-        public TeamView()
+        public TeamPlayerView()
         {
             InitializeComponent();
             teams = new Teams();

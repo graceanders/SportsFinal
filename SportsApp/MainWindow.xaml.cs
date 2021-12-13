@@ -34,7 +34,8 @@ namespace SportsApp
 
         private void Teambtn_Click(object sender, RoutedEventArgs e)
         {
-
+            TeamPlayerView teamwindow = new TeamPlayerView();
+            teamwindow.Show();
         }
     }
 }
