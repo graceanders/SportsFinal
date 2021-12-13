@@ -19,6 +19,9 @@ namespace SportsApp.ViewModels
         public ICommand SaveSportsCommand { get; set; }
         public ICommand LoadSportsCommand { get; set; }
 
+        Sports Basketball = new Basketball();
+        Sports Hockey = new Hockey();
+
         Teams teams;
 
         public ICommand AddTeamCommand { get; set; }
@@ -47,7 +50,10 @@ namespace SportsApp.ViewModels
             SaveTeamsCommand = new BasicCommand(ExecuteSaveTeams, CanExecuteSaveTeams);
             LoadTeamsCommand = new BasicCommand(ExecuteLoadTeams, CanExecuteLoadTeams);
 
-            
+            //Populate Sports List
+
+            sport.SportsList.Add(Basketball);
+            sport.SportsList.Add(Hockey);
 
         }
 

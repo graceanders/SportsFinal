@@ -14,9 +14,9 @@ namespace SportsApp.ViewModels
         public ICommand AddPlayerCommand { get; set; }
         public ICommand RemovePlayerCommand { get; set; }
 
-        Player player1 = new Player("Gage", 32);
-        Player player2 = new Player("Weaton", 54);
-        Player player3 = new Player("Jamison", 10);
+        //Player player1 = new Player("Gage", 32);
+        //Player player2 = new Player("Weaton", 54);
+        //Player player3 = new Player("Jamison", 10);
 
         //public BindableCollection<Player> TeamOne { get; set; }
 
@@ -35,9 +35,9 @@ namespace SportsApp.ViewModels
 
         public void TestAddToList()
         {
-            teams.TeamOne.Add(player1);
-            teams.TeamOne.Add(player2);
-            teams.TeamOne.Add(player3);
+            //teams.TeamOne.Add(player1);
+            //teams.TeamOne.Add(player2);
+            //teams.TeamOne.Add(player3);
         }
 
         private bool CanExecuteAddPlayer(object paramater)
