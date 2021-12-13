@@ -27,10 +27,5 @@ namespace SportsLibrary
             this.SportName = Name;
             this.SportDescription = Description;
         }
-
-        public virtual string About()
-        {
-            return string.Format($"The sport is {SportName}\nIt is {SportDescription}");
-        }
     }
 }

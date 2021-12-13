@@ -10,14 +10,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace SportsApp
+namespace SportsApp.Views
 {
     /// <summary>
-    /// Interaction logic for WPFTeam.xaml
+    /// Interaction logic for AdminView.xaml
     /// </summary>
-    public partial class WPFTeam : Window
+    public partial class AdminView : Window
     {
-        public WPFTeam()
+        public AdminView()
         {
             InitializeComponent();
         }

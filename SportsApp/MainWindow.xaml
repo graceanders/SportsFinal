@@ -9,9 +9,7 @@
     <Grid>
         <StackPanel>
             <Label>Sports App</Label>
-            <Button x:Name="CMSportbtn" Content="Create/Modify Sport" Click="CMSportbtn_Click"/>
-            <Button x:Name="CMPlayerbtn" Content="Create/Modify Player" Click="CMPlayerbtn_Click"/>
-            <Button x:Name="CMTeambtn" Content="Create/Modify Team" Click="CMTeambtn_Click"/>
+            <Button x:Name="Adminbtn" Content="Admin" Click="Adminbtn_Click"/>
         </StackPanel>
     </Grid>
 </Window>
