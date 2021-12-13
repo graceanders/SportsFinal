@@ -8,8 +8,13 @@ namespace SportsLibrary
     {
         public Basketball()
         {
-            SportName = "Name";
-            SportDescription = "a game played between two teams of five players each on a rectangular court, usually indoors. Each team tries to score by tossing the ball through the opponent's goal, an elevated horizontal hoop and net called a basket.";
+            this.SportName = "Name";
+            this.SportDescription = "a game played between two teams of five players each on a rectangular court, usually indoors. Each team tries to score by tossing the ball through the opponent's goal, an elevated horizontal hoop and net called a basket.";
+
+            Sports Basketball = new Basketball();
+
+            AddSport(Basketball);
+
         }
     }
 }

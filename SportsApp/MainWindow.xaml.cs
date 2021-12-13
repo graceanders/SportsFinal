@@ -31,5 +31,10 @@ namespace SportsApp
             AdminView adminwindow = new AdminView();
             adminwindow.Show();
         }
+
+        private void Teambtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -15,23 +15,20 @@ using System.Windows.Shapes;
 namespace SportsApp.Views
 {
     /// <summary>
-    /// Interaction logic for AdminView.xaml
+    /// Interaction logic for TeamView.xaml
     /// </summary>
-    public partial class AdminView : Window
+    public partial class TeamView : Window
     {
-        Sports sports;
         Teams teams;
-        SportViewModel vm;
+        TeamViewModel vm;
 
-        public AdminView()
+        public TeamView()
         {
             InitializeComponent();
-            sports = new Sports();
             teams = new Teams();
-            vm = new SportViewModel(sports, teams);
+            vm = new TeamViewModel(teams);
 
             this.DataContext = vm;
-
         }
     }
 }

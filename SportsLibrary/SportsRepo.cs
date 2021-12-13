@@ -7,36 +7,36 @@ namespace SportsLibrary
 {
     public class SportsRepo : ISportsRepo
     {
-        public Player thisplayer = new Player("", 0);
-        public Sports thissport = new Sports("", "");
+        Teams teams = new Teams();
+        Sports sport = new Sports();
 
-        public string json;
+        Sports basketball = new Basketball();
 
         public SportsRepo()
         {
 
         }
 
-        public void RemovePlayer(List<Player> ListName) 
-        {
-            ListName.Remove(this.thisplayer);
+        //public void RemovePlayer(List<Player> ListName) 
+        //{
+        //    ListName.Remove(this.thisplayer);
 
-        }
+        //}
 
-        public void AddPlayer(List<Player> ListName)
-        {
-            ListName.Add(this.thisplayer);
-        }
+        //public void AddPlayer(List<Player> ListName)
+        //{
+        //    ListName.Add(this.thisplayer);
+        //}
 
-        public void RemoveSport(List<Sports> ListName)
-        {
-            ListName.Remove(this.thissport);
-        }
+        //public void RemoveSport(List<Sports> ListName)
+        //{
+        //    ListName.Remove(this.thissport);
+        //}
 
-        public void AddSport(List<Sports> ListName)
-        {
-            ListName.Add(this.thissport);
-        }
+        //public void AddSport(List<Sports> ListName)
+        //{
+        //    ListName.Add(this.thissport);
+        //}
 
         
     }

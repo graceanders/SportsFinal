@@ -8,8 +8,8 @@ namespace SportsApp.ViewModels
 {
     class SportViewModel : BaseViewModel
     {
-        public Sports thissport = new Sports("", "");
-        public Teams thisteams = new Teams("", 0, "");
+        //public Sports thissport = new Sports("", "");
+        //public Teams thisteams = new Teams("", 0, "");
 
         Sports sport;
 
@@ -46,6 +46,8 @@ namespace SportsApp.ViewModels
             //AddTeamsToSportsCommand = new BasicCommand(ExecuteAddTeamsToSports, CanExecuteAddTeamsToSports);
             SaveTeamsCommand = new BasicCommand(ExecuteSaveTeams, CanExecuteSaveTeams);
             LoadTeamsCommand = new BasicCommand(ExecuteLoadTeams, CanExecuteLoadTeams);
+
+            
 
         }
 
@@ -89,9 +91,9 @@ namespace SportsApp.ViewModels
 
         private void ExecuteAddSport(object parameter)
         {
-            thissport.SportName = SportName;
-            thissport.SportDescription = SportDescription;
-            SportsList.Add(thissport);
+            //thissport.SportName = SportName;
+            //thissport.SportDescription = SportDescription;
+            SportsList.Add(this.sport);
             OnPropertyChanged("SportsList");
         }
 
@@ -189,11 +191,11 @@ namespace SportsApp.ViewModels
 
         private void ExecuteAddTeam(object parameter)
         {
-            thisteams.TeamName = this.TeamName;
-            thisteams.NumberOfPlayers = this.NumberOfPlayers;
-            thisteams.WhichSport = this.WhichSport;
+            //thisteams.TeamName = this.TeamName;
+            //thisteams.NumberOfPlayers = this.NumberOfPlayers;
+            //thisteams.WhichSport = this.WhichSport;
             
-            TeamsList.Add(thisteams);
+            TeamsList.Add(this.teams);
             OnPropertyChanged("TeamsList");
         }
 

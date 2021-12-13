@@ -14,12 +14,20 @@ namespace SportsLibrary
 
         string json;
 
-        public Sports() { }
+        public Sports()
+        {
+        }
+
 
         public Sports (string Name, string Description)
         {
             this.SportName = Name;
             this.SportDescription = Description;
+        }
+
+        public void AddSport(Sports s)
+        {
+            SportsList.Add(s);
         }
 
         public void SaveSports(Sports s)

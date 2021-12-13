@@ -10,6 +10,7 @@
         <StackPanel>
             <Label>Sports App</Label>
             <Button x:Name="Adminbtn" Content="Admin" Click="Adminbtn_Click"/>
+            <Button x:Name="Teambtn" Content="Team" Click="Teambtn_Click"/>
         </StackPanel>
     </Grid>
 </Window>

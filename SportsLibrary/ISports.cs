@@ -10,6 +10,8 @@ namespace SportsLibrary
         string SportDescription { get; set; }
         List<Sports> SportsList { get; set; }
 
+        void AddSport(Sports s);
+
         void SaveSports(Sports s) { }
 
         void LoadSports() { }
