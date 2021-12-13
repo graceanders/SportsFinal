@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -8,6 +9,8 @@ namespace SportsLibrary
     {
         public Player thisplayer = new Player("", 0);
         public Sports thissport = new Sports("", "");
+
+        public string json;
 
         public SportsRepo()
         {
@@ -34,5 +37,7 @@ namespace SportsLibrary
         {
             ListName.Add(this.thissport);
         }
+
+        
     }
 }

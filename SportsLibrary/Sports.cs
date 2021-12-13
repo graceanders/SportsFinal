@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,19 +7,12 @@ namespace SportsLibrary
 {
     public class Sports: ISports
     {
-        /*
-         Requirement : App should have a collection of sport objects (maybe sport repo)  and the ability to add an remove sports
-
-         Requirement : Sports have names and descriptions. 
-
-         different sports will likely need different sub classes to support different structures.
-
-         app should demonstrate different sports.
-         */
 
         public string SportName { get; set; }
         public string SportDescription { get; set; }
         public List <Sports> SportsList { get; set; }
+
+        string json;
 
         public Sports() { }
 
@@ -26,6 +20,20 @@ namespace SportsLibrary
         {
             this.SportName = Name;
             this.SportDescription = Description;
+        }
+
+        public void SaveSports(Sports s)
+        {
+            json = JsonConvert.SerializeObject(s);
+        }
+
+        public void LoadSports()
+        {
+            var jsonSports = JsonConvert.DeserializeObject<Sports>(json);
+
+            this.SportName = jsonSports.SportName;
+            this.SportDescription = jsonSports.SportDescription;
+
         }
     }
 }

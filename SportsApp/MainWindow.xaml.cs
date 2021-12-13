@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SportsApp.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,7 +28,7 @@ namespace SportsApp
 
         private void Adminbtn_Click(object sender, RoutedEventArgs e)
         {
-            WPFAdmin adminwindow = new WPFAdmin();
+            AdminView adminwindow = new AdminView();
             adminwindow.Show();
         }
     }
