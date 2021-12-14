@@ -10,18 +10,24 @@ namespace SportsLibrary
         ITeams teams;
         ISports sports;
 
+        Sports basketball;
+        Sports hockey;
+
         public List<Teams> ListOfTeams { get; set; }
         public List<Sports> ListOfSports { get; set; }
 
         public List<Player> TeamOne { get; set; }
         public List<Player> TeamTwo { get; set; }
 
-        string jsonS, jsonSport, jsonT, jsonTeam;
+        string jsonS, jsonT;
 
         public SportsRepo()
         {
             teams = new Teams();
             sports = new Sports();
+
+            basketball = new Basketball();
+            hockey = new Hockey();
 
             this.ListOfTeams = new List<Teams>();
             this.ListOfSports = new List<Sports>();
@@ -30,13 +36,13 @@ namespace SportsLibrary
 
         Teams CurrentTeamItem = new Teams("", 0, "");
         Sports CurrentSportItem = new Sports("", "");
-
-
-        //public virtual void AddTeam(Teams t)
-        //{
-        //    this.ListOfTeams.Add(t);
-        //}
-
+        
+        public void PopulateSports()
+        {
+            ListOfSports.Add(basketball);
+            ListOfSports.Add(hockey);
+        }
+    
         public virtual void AddTeam(string Name, int NumberOfPlayers, string WhichSport)
         {
             this.CurrentTeamItem.TeamName = Name;
@@ -68,27 +74,50 @@ namespace SportsLibrary
                 return s;
             }
             return null;
-        }  
+        }
 
-        //public void RemovePlayer(List<Player> ListName)
-        //{
-        //    ListName.Remove(this.thisplayer);
+        public void RemovePlayerTeamOne(Player p)
+        {
+            TeamOne.Remove(p);
 
-        //}
+        }
 
-        //public void AddPlayer(List<Player> ListName)
-        //{
-        //    ListName.Add(this.thisplayer);
-        //}
+        public void AddPlayerTeamOne(Player p)
+        {
+            TeamTwo.Add(p);
+        }
+
+        public void RemovePlayerTeamTwo(Player p)
+        {
+            TeamOne.Remove(p);
+
+        }
+
+        public void AddPlayerTeamTwo(Player p)
+        {
+            TeamTwo.Add(p);
+        }
 
         public void SaveSport()
         {
-
+            jsonS = JsonConvert.SerializeObject(sports);
         }
 
         public void LoadSport()
         {
+            var jsonSport = JsonConvert.DeserializeObject<Sports>(jsonS);
+            sports = jsonSport;
+        }
 
+        public void SaveTeam()
+        {
+            jsonT = JsonConvert.SerializeObject(teams);
+        }
+
+        public void LoadTeam()
+        {
+            var jsonTeams = JsonConvert.DeserializeObject<Teams>(jsonT);
+            teams = jsonTeams;
         }
 
     }
