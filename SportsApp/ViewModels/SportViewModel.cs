@@ -6,20 +6,15 @@ using System.Windows.Input;
 
 namespace SportsApp.ViewModels
 {
-    class SportViewModel : BaseViewModel
+    public class SportViewModel : BaseViewModel
     {
-        //public Sports thissport = new Sports("", "");
-        //public Teams thisteams = new Teams("", 0, "");
-
-        Sports sport;
+        SportsRepo SportsRepo;
 
         public ICommand AddSportCommand { get; set; }
         public ICommand RemoveSportCommand { get; set; }
 
         public ICommand SaveSportsCommand { get; set; }
         public ICommand LoadSportsCommand { get; set; }
-
-        Teams teams;
 
         public ICommand AddTeamCommand { get; set; }
         public ICommand RemoveTeamCommand { get; set; }
@@ -31,16 +26,14 @@ namespace SportsApp.ViewModels
         bool SportsLoadExecutable;
         bool TeamsLoadExecutable;
 
-        public SportViewModel(Sports s, Teams t)
+        public SportViewModel(SportsRepo sr)
         {
-            this.sport = s;
-
+            this.SportsRepo = sr;
             AddSportCommand = new BasicCommand(ExecuteAddSport, CanExecuteAddSport);
             RemoveSportCommand = new BasicCommand(ExecuteRemoveSport, CanExecuteRemoveSport);
             SaveSportsCommand = new BasicCommand(ExecuteSaveSport, CanExecuteSaveSport);
             LoadSportsCommand = new BasicCommand(ExecuteLoadSport, CanExecuteLoadSport);
 
-            this.teams = t;
             AddTeamCommand = new BasicCommand(ExecuteAddTeam, CanExecuteAddTeam);
             RemoveTeamCommand = new BasicCommand(ExecuteRemoveTeam, CanExecuteRemoveTeam);
             //AddTeamsToSportsCommand = new BasicCommand(ExecuteAddTeamsToSports, CanExecuteAddTeamsToSports);
@@ -49,34 +42,32 @@ namespace SportsApp.ViewModels
 
         }
 
-        //Sports
-
         public string SportName
         {
-            get { return this.sport.SportName; }
+            get { return this.SportsRepo.sports.SportName; }
             set
             {
-                this.sport.SportName = value;
+                this.SportsRepo.sports.SportName = value;
                 OnPropertyChanged();
             }
         }
 
         public string SportDescription
         {
-            get { return this.sport.SportDescription; }
+            get { return this.SportsRepo.sports.SportDescription; }
             set
             {
-                this.sport.SportDescription = value;
+                this.SportsRepo.sports.SportDescription = value;
                 OnPropertyChanged();
             }
         }
 
         public List<Sports> SportsList
         {
-            get { return this.sport.SportsList; }
+            get { return this.SportsRepo.ListOfSports; }
             set
             {
-                this.sport.SportsList = value;
+                this.SportsRepo.ListOfSports = value;
                 OnPropertyChanged();
 
             }
@@ -89,8 +80,12 @@ namespace SportsApp.ViewModels
 
         private void ExecuteAddSport(object parameter)
         {
-            SportsList.Add(this.sport);
-            OnPropertyChanged("SportsList");
+            if (this.SportName == "" || this.SportDescription == "") { }
+            else
+            {
+                SportsRepo.AddSport(this.SportName, this.SportDescription);
+                OnPropertyChanged("SportsList");
+            }
         }
 
         private bool CanExecuteRemoveSport(object parameter)
@@ -100,7 +95,12 @@ namespace SportsApp.ViewModels
 
         private void ExecuteRemoveSport(object parameter)
         {
-
+            if (this.SportName == "" || this.SportDescription == "") { }
+            else
+            {
+                SportsRepo.RemoveSport(this.SportName, this.SportDescription);
+                OnPropertyChanged("SportsList");
+            }
         }
 
         //Sports Saving & Loading
@@ -112,7 +112,7 @@ namespace SportsApp.ViewModels
 
         private void ExecuteSaveSport(object parameter)
         {
-            sport.SaveSports(sport);
+            SportsRepo.SaveSport();
             SportsLoadExecutable = true;
         }
 
@@ -131,7 +131,7 @@ namespace SportsApp.ViewModels
 
         private void ExecuteLoadSport(object parameter)
         {
-            sport.LoadSports();
+            SportsRepo.LoadSport();
 
             OnPropertyChanged("Name");
             OnPropertyChanged("Description");
@@ -142,39 +142,39 @@ namespace SportsApp.ViewModels
 
         public string TeamName
         {
-            get { return this.teams.TeamName; }
+            get { return this.SportsRepo.teams.TeamName; }
             set
             {
-                this.teams.TeamName = value;
+                this.SportsRepo.teams.TeamName = value;
                 OnPropertyChanged();
             }
         }
 
         public int NumberOfPlayers
         {
-            get { return this.teams.NumberOfPlayers; }
+            get { return this.SportsRepo.teams.NumberOfPlayers; }
             set
             {
-                this.teams.NumberOfPlayers = value;
+                this.SportsRepo.teams.NumberOfPlayers = value;
                 OnPropertyChanged();
             }
         }
 
         public string WhichSport
         {
-            get { return this.teams.WhichSport; }
+            get { return this.SportsRepo.teams.WhichSport; }
             set
             {
-                this.teams.WhichSport = value;
+                this.SportsRepo.teams.WhichSport = value;
             }
         }
 
         public List<Teams> TeamsList
         {
-            get { return this.teams.TeamsList; }
+            get { return this.SportsRepo.ListOfTeams; }
             set
             {
-                this.teams.TeamsList = value;
+                this.SportsRepo.ListOfTeams = value;
                 OnPropertyChanged("TeamsList");
 
             }
@@ -187,12 +187,12 @@ namespace SportsApp.ViewModels
 
         private void ExecuteAddTeam(object parameter)
         {
-            //thisteams.TeamName = this.TeamName;
-            //thisteams.NumberOfPlayers = this.NumberOfPlayers;
-            //thisteams.WhichSport = this.WhichSport;
-            
-            TeamsList.Add(this.teams);
-            OnPropertyChanged("TeamsList");
+            if (this.TeamName == "" || this.NumberOfPlayers == 0 || this.WhichSport == "") { }
+            else
+            {
+                SportsRepo.AddTeam(this.TeamName, this.NumberOfPlayers, this.WhichSport);
+                OnPropertyChanged("TeamsList");
+            }
         }
 
         private bool CanExecuteRemoveTeam(object parameter)
@@ -202,20 +202,13 @@ namespace SportsApp.ViewModels
 
         private void ExecuteRemoveTeam(object parameter)
         {
-
+            if (this.TeamName == "" || this.NumberOfPlayers == 0 || this.WhichSport == "") { }
+            else
+            {
+                SportsRepo.RemoveTeam(this.TeamName, this.NumberOfPlayers, this.WhichSport);
+                OnPropertyChanged("TeamsList");
+            }
         }
-
-        //private bool CanExecuteAddTeamsToSports(object parameter)
-        //{
-        //    return true;
-        //}
-
-        //private void ExecuteAddTeamsToSports(object parameter)
-        //{
-
-        //}
-
-        //Teams Saving & Loading
 
         private bool CanExecuteSaveTeams(object parameter)
         {
@@ -224,7 +217,7 @@ namespace SportsApp.ViewModels
 
         private void ExecuteSaveTeams(object parameter)
         {
-            teams.SaveTeams(teams);
+            SportsRepo.SaveTeam();
             TeamsLoadExecutable = true;
         }
 
@@ -242,7 +235,7 @@ namespace SportsApp.ViewModels
 
         private void ExecuteLoadTeams(object parameter)
         {
-            teams.LoadTeams();
+            SportsRepo.LoadTeam();
 
             OnPropertyChanged("Name");
             OnPropertyChanged("Description");

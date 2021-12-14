@@ -12,8 +12,6 @@ namespace SportsLibrary
         public string SportDescription { get; set; }
         
 
-        string json;
-
         public Sports()
         {
         }

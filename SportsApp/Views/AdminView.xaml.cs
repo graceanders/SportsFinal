@@ -19,16 +19,15 @@ namespace SportsApp.Views
     /// </summary>
     public partial class AdminView : Window
     {
-        Sports sports;
-        Teams teams;
+        SportsRepo sr;
         SportViewModel vm;
 
         public AdminView()
         {
             InitializeComponent();
-            sports = new Sports();
-            teams = new Teams();
-            vm = new SportViewModel(sports, teams);
+            sr = new SportsRepo();
+
+            vm = new SportViewModel(sr);
 
             this.DataContext = vm;
 

@@ -13,29 +13,29 @@ namespace SportsLibrary
         class InnerClass //https://www.c-sharpcorner.com/blogs/wrapper-class-in-c-sharp1
         {
 
-            public T JsonDeserialize<T>(string toDeserialize)
-            {
-                return JsonConvert.DeserializeObject<T>(toDeserialize);
-            }
+            //public T JsonDeserialize<T>(string toDeserialize)
+            //{
+            //    return JsonConvert.DeserializeObject<T>(toDeserialize);
+            //}
 
-            public string JsonSerialize<T>(this T toSerialize)
-            {
-                return JsonConvert.SerializeObject(toSerialize);
-            }
+            //public string JsonSerialize<T>(this T toSerialize)
+            //{
+            //    return JsonConvert.SerializeObject(toSerialize);
+            //}
         }
 
         class SaveLoad
         {
-            public string GetXML<T>(this T o)
-            {
-                XmlSerializer serializer = new XmlSerializer(o.GetType());
+            //public string GetXML<T>(this T o)
+            //{
+            //    XmlSerializer serializer = new XmlSerializer(o.GetType());
 
-                using (StringWriter textWriter = new StringWriter())
-                {
-                    serializer.Serialize(textWriter, o);
-                    return textWriter.ToString();
-                }
-            }
+            //    using (StringWriter textWriter = new StringWriter())
+            //    {
+            //        serializer.Serialize(textWriter, o);
+            //        return textWriter.ToString();
+            //    }
+            //}
 
             public T LoadFromXML<T>(string xml)
             {
