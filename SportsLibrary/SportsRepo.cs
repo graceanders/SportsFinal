@@ -11,10 +11,12 @@ namespace SportsLibrary
         ISports sports;
 
         public List<Teams> ListOfTeams { get; set; }
-        public List <Sports> ListOfSports { get; set; }
+        public List<Sports> ListOfSports { get; set; }
 
         public List<Player> TeamOne { get; set; }
         public List<Player> TeamTwo { get; set; }
+
+        string jsonS, jsonSport, jsonT, jsonTeam;
 
         public SportsRepo()
         {
@@ -24,57 +26,70 @@ namespace SportsLibrary
             this.ListOfTeams = new List<Teams>();
             this.ListOfSports = new List<Sports>();
         }
-        
 
-        Teams CurrentTeamItem = new Teams("", 0,"");
+
+        Teams CurrentTeamItem = new Teams("", 0, "");
         Sports CurrentSportItem = new Sports("", "");
 
 
+        //public virtual void AddTeam(Teams t)
+        //{
+        //    this.ListOfTeams.Add(t);
+        //}
 
-
-        public void AddToList(string ListName)
+        public virtual void AddTeam(string Name, int NumberOfPlayers, string WhichSport)
         {
-            //Sport has Name string and Description string
-            //Team has Name string NumberOfPlayers int and WhichSport string
+            this.CurrentTeamItem.TeamName = Name;
+            this.CurrentTeamItem.NumberOfPlayers = NumberOfPlayers;
+            this.CurrentTeamItem.WhichSport = WhichSport;
+        }
 
-            if (ListName == "SportsList")
+        public virtual Teams RemoveTeam(Teams t)
+        {
+            if (this.ListOfTeams.Remove(t))
             {
-
-                sport.SportsList.Add(CurrentSportItem);
+                return t;
             }
-            else if (ListName == "TeamsList")
+            return null;
+        }
+
+        public virtual void AddSport(string Name, string Description)
+        {
+            this.CurrentSportItem.SportName = Name;
+            this.CurrentSportItem.SportDescription = Description;
+
+            this.ListOfSports.Add(CurrentSportItem);
+        }
+
+        public virtual Sports RemoveSport(Sports s)
+        {
+            if (this.ListOfSports.Remove(s))
             {
-                teams.TeamsList.Add(CurrentTeamItem);
+                return s;
             }
+            return null;
+        }  
 
-        }    
+        //public void RemovePlayer(List<Player> ListName)
+        //{
+        //    ListName.Remove(this.thisplayer);
 
-        public void RemoveFromList()
+        //}
+
+        //public void AddPlayer(List<Player> ListName)
+        //{
+        //    ListName.Add(this.thisplayer);
+        //}
+
+        public void SaveSport()
         {
 
         }
 
-        public void RemovePlayer(List<Player> ListName)
+        public void LoadSport()
         {
-            ListName.Remove(this.thisplayer);
 
         }
-
-        public void AddPlayer(List<Player> ListName)
-        {
-            ListName.Add(this.thisplayer);
-        }
-
-        public void RemoveSport(List<Sports> ListName)
-        {
-            ListName.Remove(this.CurrentSportItem);
-        }
-
-        public void AddSport(List<Sports> ListName)
-        {
-            ListName.Add(this.CurrentSportItem);
-        }
-
 
     }
 }

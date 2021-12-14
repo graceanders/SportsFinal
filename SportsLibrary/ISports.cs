@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SportsLibrary
 {
-    interface ISports: IJSONSerialization
+    interface ISports
     {
         string SportName { get;  set; }
         string SportDescription { get; set; }
