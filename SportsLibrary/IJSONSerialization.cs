@@ -6,8 +6,10 @@ namespace SportsLibrary
 {
     interface IJSONSerialization
     {
-        public void Save(object o);
+        //public void Save(object o);
 
-        public void Load(object o);
+        //public void Load(object o);
+
+
     }
 }

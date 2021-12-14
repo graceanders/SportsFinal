@@ -11,9 +11,9 @@ namespace SportsLibrary
 
         string WhichSport { get; set; }
 
-        List<Teams> TeamsList { get; set; }
+        //List<Teams> TeamsList { get; set; }
 
-        List<Player> TeamOne { get; set; }
-        List<Player> TeamTwo { get; set; }
+        //List<Player> TeamOne { get; set; }
+        //List<Player> TeamTwo { get; set; }
     }
 }

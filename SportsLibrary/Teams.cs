@@ -20,12 +20,11 @@ namespace SportsLibrary
 
         public string WhichSport { get; set; }
 
-        public List<Teams> TeamsList { get; set; }
+        //public List<Teams> TeamsList { get; set; }
 
-        public List<Player> TeamOne { get; set; }
-        public List<Player> TeamTwo { get; set; }
+        //public List<Player> TeamOne { get; set; }
+        //public List<Player> TeamTwo { get; set; }
 
-        string json;
 
         public Teams() { }
 

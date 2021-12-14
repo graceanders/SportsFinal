@@ -10,7 +10,7 @@ namespace SportsLibrary
 
         public string SportName { get; set; }
         public string SportDescription { get; set; }
-        public List <Sports> SportsList { get; set; }
+        
 
         string json;
 
@@ -23,13 +23,6 @@ namespace SportsLibrary
         {
             this.SportName = Name;
             this.SportDescription = Description;
-        }
-
-        //Move to REpo
-
-        public void AddSport(Sports s)
-        {
-            SportsList.Add(s);
         }
 
      

@@ -8,9 +8,7 @@ namespace SportsLibrary
     {
         string SportName { get;  set; }
         string SportDescription { get; set; }
-        List<Sports> SportsList { get; set; }
 
-        void AddSport(Sports s);
     }
 
 }

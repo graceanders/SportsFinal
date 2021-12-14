@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 
 namespace SportsLibrary
 {
-    class JSONSerialization
+    class JSONSerialization//idk how class wrapping works
     {
         //public string jsonS, jsonT, jsonSport, jsonTeam;
 
