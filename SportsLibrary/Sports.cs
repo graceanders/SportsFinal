@@ -25,24 +25,13 @@ namespace SportsLibrary
             this.SportDescription = Description;
         }
 
+        //Move to REpo
+
         public void AddSport(Sports s)
         {
             SportsList.Add(s);
         }
 
-        public void SaveSports(Sports s)
-        {
-            json = JsonConvert.SerializeObject(s);
-        }
-
-        public void LoadSports()
-        {
-            var jsonSports = JsonConvert.DeserializeObject<Sports>(json);
-
-            this.SportName = jsonSports.SportName;
-            this.SportDescription = jsonSports.SportDescription;
-            this.SportsList = jsonSports.SportsList;
-
-        }
+     
     }
 }

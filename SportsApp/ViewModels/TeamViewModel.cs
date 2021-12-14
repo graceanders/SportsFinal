@@ -30,7 +30,6 @@ namespace SportsApp.ViewModels
             //Populate DataGrid
             //TeamOne = new BindableCollection<Player>(teams.Player());
 
-
         }
 
         public void TestAddToList()

@@ -4,10 +4,7 @@ using System.Text;
 
 namespace SportsLibrary
 {
-    interface IJSONSerialization
+    interface ITeam
     {
-        public void Save(object o);
-
-        public void Load(object o);
     }
 }
