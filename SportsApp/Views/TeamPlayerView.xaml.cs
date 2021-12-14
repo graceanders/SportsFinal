@@ -19,14 +19,14 @@ namespace SportsApp.Views
     /// </summary>
     public partial class TeamPlayerView : Window
     {
-        Teams teams;
+        SportsRepo sr;
         TeamViewModel vm;
 
         public TeamPlayerView()
         {
             InitializeComponent();
-            teams = new Teams();
-            vm = new TeamViewModel(teams);
+            sr = new SportsRepo();
+            vm = new TeamViewModel(sr);
 
             this.DataContext = vm;
         }

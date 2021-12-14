@@ -9,54 +9,141 @@ namespace SportsApp.ViewModels
 {
     class TeamViewModel : BaseViewModel
     {
-        Teams teams;
+        SportsRepo SportsRepo;
          
-        public ICommand AddPlayerCommand { get; set; }
-        public ICommand RemovePlayerCommand { get; set; }
+        public ICommand AddPlayerTeamOneCommand { get; set; }
+        public ICommand RemovePlayerTeamOneCommand { get; set; }
+        public ICommand AddPlayerTeamTwoCommand { get; set; }
+        public ICommand RemovePlayerTeamTwoCommand { get; set; }
 
-        //Player player1 = new Player("Gage", 32);
-        //Player player2 = new Player("Weaton", 54);
-        //Player player3 = new Player("Jamison", 10);
 
-        //public BindableCollection<Player> TeamOne { get; set; }
 
-        public TeamViewModel(Teams t)
+        public TeamViewModel(SportsRepo sr)
         {
-            this.teams = t;
+            this.SportsRepo = sr;
 
-            AddPlayerCommand = new BasicCommand(ExecuteAddPlayer, CanExecuteAddPlayer);
-            RemovePlayerCommand = new BasicCommand(ExecuteRemovePlayer, CanExecuteRemovePlayer);
+            AddPlayerTeamOneCommand = new BasicCommand(ExecuteAddPlayerTeamOne, CanExecuteAddPlayerTeamOne);
+            RemovePlayerTeamOneCommand = new BasicCommand(ExecuteRemovePlayerTeamOne, CanExecuteRemovePlayerTeamOne);
 
-            //Populate DataGrid
-            //TeamOne = new BindableCollection<Player>(teams.Player());
+            AddPlayerTeamTwoCommand = new BasicCommand(ExecuteAddPlayerTeamTwo, CanExecuteAddPlayerTeamTwo);
+            RemovePlayerTeamTwoCommand = new BasicCommand(ExecuteRemovePlayerTeamTwo, CanExecuteRemovePlayerTeamTwo);
 
         }
 
-        public void TestAddToList()
+        public string PlayerNameOne
         {
-            //teams.TeamOne.Add(player1);
-            //teams.TeamOne.Add(player2);
-            //teams.TeamOne.Add(player3);
+            get { return this.SportsRepo.playerone.Name; }
+            set
+            {
+                this.SportsRepo.playerone.Name = value;
+                OnPropertyChanged();
+            }
+        }
+         
+        public int PlayerNumberOne
+        {
+            get { return this.SportsRepo.playerone.Number; }
+            set
+            {
+                this.SportsRepo.playerone.Number = value;
+                OnPropertyChanged();
+            }
         }
 
-        private bool CanExecuteAddPlayer(object paramater)
+        public string PlayerNameTwo
+        {
+            get { return this.SportsRepo.playertwo.Name; }
+            set
+            {
+                this.SportsRepo.playertwo.Name = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public int PlayerNumberTwo
+        {
+            get { return this.SportsRepo.playertwo.Number; }
+            set
+            {
+                this.SportsRepo.playertwo.Number = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public List<Player> TeamOne
+        {
+            get { return this.SportsRepo.TeamOne; }
+            set
+            {
+                this.SportsRepo.TeamOne = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public List<Player> TeamTwo
+        {
+            get { return this.SportsRepo.TeamTwo; }
+            set
+            {
+                this.SportsRepo.TeamTwo = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool CanExecuteAddPlayerTeamOne(object paramater)
         {
             return true;
         }
 
-        private void ExecuteAddPlayer(object paramater)
+        private void ExecuteAddPlayerTeamOne(object paramater)
         {
-            
+            if (this.PlayerNameOne == "" || this.PlayerNumberOne == 0) { }
+            else
+            {
+                SportsRepo.AddPlayerTeamOne(this.PlayerNameOne, this.PlayerNumberOne);
+            }
         }
 
-        private bool CanExecuteRemovePlayer(object paramater)
+        private bool CanExecuteRemovePlayerTeamOne(object paramater)
         {
             return true;
         }
 
-        private void ExecuteRemovePlayer(object paramater)
+        private void ExecuteRemovePlayerTeamOne(object paramater)
         {
+            if (this.PlayerNameOne == "" || this.PlayerNumberOne == 0) { }
+            else
+            {
+                SportsRepo.RemovePlayerTeamOne(this.PlayerNameOne, this.PlayerNumberOne);
+            }
+        }
 
+        private bool CanExecuteAddPlayerTeamTwo(object paramater)
+        {
+            return true;
+        }
+
+        private void ExecuteAddPlayerTeamTwo(object paramater)
+        {
+            if (this.PlayerNameTwo == "" || this.PlayerNumberTwo == 0) { }
+            else
+            {
+                SportsRepo.AddPlayerTeamTwo(this.PlayerNameTwo, this.PlayerNumberTwo);
+            }
+        }
+
+        private bool CanExecuteRemovePlayerTeamTwo(object paramater)
+        {
+            return true;
+        }
+
+        private void ExecuteRemovePlayerTeamTwo(object paramater)
+        {
+            if (this.PlayerNameTwo == "" || this.PlayerNumberTwo == 0) { }
+            else
+            {
+                SportsRepo.RemovePlayerTeamTwo(this.PlayerNameTwo, this.PlayerNumberTwo);
+            }
         }
     }
 }

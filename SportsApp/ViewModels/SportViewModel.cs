@@ -6,9 +6,11 @@ using System.Windows.Input;
 
 namespace SportsApp.ViewModels
 {
-    public class SportViewModel : BaseViewModel
+    class SportViewModel : BaseViewModel
     {
         SportsRepo SportsRepo;
+
+        //List<Sports> SportsList { get => SportsRepo.ListOfSports;}
 
         public ICommand AddSportCommand { get; set; }
         public ICommand RemoveSportCommand { get; set; }
@@ -18,7 +20,6 @@ namespace SportsApp.ViewModels
 
         public ICommand AddTeamCommand { get; set; }
         public ICommand RemoveTeamCommand { get; set; }
-        //public ICommand AddTeamsToSportsCommand { get; set; }
 
         public ICommand SaveTeamsCommand { get; set; }
         public ICommand LoadTeamsCommand { get; set; }
@@ -62,7 +63,7 @@ namespace SportsApp.ViewModels
             }
         }
 
-        public List<Sports> SportsList
+        public List<Sports> ListOfSports
         {
             get { return this.SportsRepo.ListOfSports; }
             set
@@ -102,8 +103,6 @@ namespace SportsApp.ViewModels
                 OnPropertyChanged("SportsList");
             }
         }
-
-        //Sports Saving & Loading
 
         private bool CanExecuteSaveSport(object parameter)
         {
@@ -169,7 +168,7 @@ namespace SportsApp.ViewModels
             }
         }
 
-        public List<Teams> TeamsList
+        public List<Teams> ListOfTeams
         {
             get { return this.SportsRepo.ListOfTeams; }
             set

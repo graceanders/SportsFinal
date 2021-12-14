@@ -17,7 +17,7 @@ namespace SportsLibrary
         public string Name { get; set; }
         public int Number { get; set; }
 
-        public string SportPlayed{ get; set; }
+        public Player() { }
 
         public Player (string Name, int Number)
         {

@@ -9,6 +9,8 @@ namespace SportsLibrary
     {
         public Teams teams;
         public Sports sports;
+        public Player playerone;
+        public Player playertwo;
 
         Sports basketball;
         Sports hockey;
@@ -25,6 +27,8 @@ namespace SportsLibrary
         {
             teams = new Teams();
             sports = new Sports();
+            playerone = new Player();
+            playertwo = new Player();
 
             basketball = new Basketball();
             hockey = new Hockey();
@@ -36,6 +40,8 @@ namespace SportsLibrary
 
         public Teams CurrentTeamItem = new Teams("", 0, "");
         public Sports CurrentSportItem = new Sports("", "");
+
+        public Player CurrentPlayer = new Player("", 0);
         
         public void PopulateSports()
         {
@@ -86,26 +92,46 @@ namespace SportsLibrary
             return;
         }
 
-        public void RemovePlayerTeamOne(Player p)
+        public void RemovePlayerTeamOne(string Name, int Number)
         {
-            TeamOne.Remove(p);
+            this.CurrentPlayer.Name = Name;
+            this.CurrentPlayer.Number = Number;
+
+            if (this.TeamOne.Contains(CurrentPlayer))
+            {
+                this.TeamOne.Remove(CurrentPlayer);
+            }
+            return;
 
         }
 
-        public void AddPlayerTeamOne(Player p)
+        public void AddPlayerTeamOne(string Name, int Number)
         {
-            TeamTwo.Add(p);
+            this.CurrentPlayer.Name = Name;
+            this.CurrentPlayer.Number = Number;
+
+            this.TeamOne.Add(CurrentPlayer);
         }
 
-        public void RemovePlayerTeamTwo(Player p)
+        public void RemovePlayerTeamTwo(string Name, int Number)
         {
-            TeamOne.Remove(p);
+            this.CurrentPlayer.Name = Name;
+            this.CurrentPlayer.Number = Number;
+
+            if (this.TeamTwo.Contains(CurrentPlayer))
+            {
+                this.TeamTwo.Remove(CurrentPlayer);
+            }
+            return;
 
         }
 
-        public void AddPlayerTeamTwo(Player p)
+        public void AddPlayerTeamTwo(string Name, int Number)
         {
-            TeamTwo.Add(p);
+            this.CurrentPlayer.Name = Name;
+            this.CurrentPlayer.Number = Number;
+
+            this.TeamTwo.Add(CurrentPlayer);
         }
 
         public void SaveSport()
