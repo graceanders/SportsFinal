@@ -6,7 +6,7 @@ using System.Text;
 
 namespace SportsLibrary
 {
-    public class Teams
+    public class Teams : ITeams
     {
         /*
          Teams play (depends on a) a sport. They have names and  players.

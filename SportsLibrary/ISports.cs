@@ -4,17 +4,13 @@ using System.Text;
 
 namespace SportsLibrary
 {
-    public interface ISports
+    interface ISports: IJSONSerialization
     {
         string SportName { get;  set; }
         string SportDescription { get; set; }
         List<Sports> SportsList { get; set; }
 
         void AddSport(Sports s);
-
-        void SaveSports(Sports s) { }
-
-        void LoadSports() { }
     }
 
 }

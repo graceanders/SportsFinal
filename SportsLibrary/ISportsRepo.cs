@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SportsLibrary
 {
-    public interface ISportsRepo
+    interface ISportsRepo
     {
         public void RemovePlayer(List<Player> ListName) { }
 
