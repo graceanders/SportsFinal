@@ -4,8 +4,11 @@ using System.Text;
 
 namespace SportsLibrary
 {
-    public class Person
+    interface ISport
     {
-        string Name { get; set; }
+        string SportName { get;  set; }
+        string SportDescription { get; set; }
+
     }
+
 }

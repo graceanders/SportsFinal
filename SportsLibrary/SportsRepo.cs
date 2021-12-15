@@ -7,16 +7,16 @@ namespace SportsLibrary
 {
     public class SportsRepo : ISportsRepo
     {
-        public Teams teams;
-        public Sports sports;
+        public Team teams;
+        public Sport sports;
         public Player playerone;
         public Player playertwo;
 
-        Sports basketball;
-        Sports hockey;
+        Sport basketball;
+        Sport hockey;
 
-        public List<Teams> ListOfTeams { get; set; }
-        public List<Sports> ListOfSports { get; set; }
+        public List<Team> ListOfTeams { get; set; }
+        public List<Sport> ListOfSports { get; set; }
 
         public List<Player> TeamOne { get; set; }
         public List<Player> TeamTwo { get; set; }
@@ -25,31 +25,47 @@ namespace SportsLibrary
 
         public SportsRepo()
         {
-            teams = new Teams();
-            sports = new Sports();
+            teams = new Team();
+            sports = new Sport();
             playerone = new Player();
             playertwo = new Player();
 
             basketball = new Basketball();
             hockey = new Hockey();
 
-            this.ListOfTeams = new List<Teams>();
-            this.ListOfSports = new List<Sports>();
+            this.ListOfTeams = new List<Team>();
+            this.ListOfSports = new List<Sport>();
             PopulateSports();
         }
 
 
-        public Teams CurrentTeamItem = new Teams("", 0, "");
-        public Sports CurrentSportItem = new Sports("", "");
+        public Team CurrentTeamItem = new Team("", 0, "");
+        public Sport CurrentSportItem = new Sport("", "");
 
         public Player CurrentPlayer = new Player("", 0);
-        
+
         public void PopulateSports()
         {
             ListOfSports.Add(basketball);
             ListOfSports.Add(hockey);
         }
-    
+
+        public void RemakeSportsList()
+        {
+            foreach(Sport s in ListOfSports)
+            {
+                ListOfSports.Add(s);
+            }
+        }
+
+        public void RemakeTeamsList()
+        {
+            foreach (Team t in ListOfTeams)
+            {
+                ListOfTeams.Add(t);
+            }
+        }
+
         public virtual void AddTeam(string Name, int NumberOfPlayers, string WhichSport)
         {
             this.CurrentTeamItem.TeamName = Name;
@@ -142,7 +158,7 @@ namespace SportsLibrary
 
         public void LoadSport()
         {
-            var jsonSport = JsonConvert.DeserializeObject<Sports>(jsonS);
+            var jsonSport = JsonConvert.DeserializeObject<Sport>(jsonS);
             sports = jsonSport;
         }
 
@@ -153,7 +169,7 @@ namespace SportsLibrary
 
         public void LoadTeam()
         {
-            var jsonTeams = JsonConvert.DeserializeObject<Teams>(jsonT);
+            var jsonTeams = JsonConvert.DeserializeObject<Team>(jsonT);
             teams = jsonTeams;
         }
 

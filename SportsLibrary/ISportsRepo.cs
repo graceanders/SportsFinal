@@ -10,8 +10,8 @@ namespace SportsLibrary
 
         public void AddPlayer(List<Player> ListName) { }
 
-        public void RemoveSport(List<Sports> ListName) { }
+        public void RemoveSport(List<Sport> ListName) { }
 
-        public void AddSport(List<Sports> ListName) { }
+        public void AddSport(List<Sport> ListName) { }
     }
 }

@@ -50,6 +50,7 @@ namespace SportsApp.ViewModels
             {
                 this.SportsRepo.sports.SportName = value;
                 OnPropertyChanged();
+                OnPropertyChanged("CurrentSportItem");
             }
         }
 
@@ -60,17 +61,29 @@ namespace SportsApp.ViewModels
             {
                 this.SportsRepo.sports.SportDescription = value;
                 OnPropertyChanged();
+                OnPropertyChanged("CurrentSportItem");
             }
         }
 
-        public List<Sports> ListOfSports
+        public List<Sport> ListOfSports
         {
             get { return this.SportsRepo.ListOfSports; }
             set
             {
                 this.SportsRepo.ListOfSports = value;
-                OnPropertyChanged("ListOfSports");
+                OnPropertyChanged();
 
+            }
+        }
+
+        public Sport CurrentSportItem
+        {
+            get { return this.SportsRepo.CurrentSportItem; }
+            set
+            {
+                this.SportsRepo.CurrentSportItem.SportName = SportName;
+                this.SportsRepo.CurrentSportItem.SportDescription = SportDescription;
+                OnPropertyChanged();
             }
         }
 
@@ -84,6 +97,7 @@ namespace SportsApp.ViewModels
             if (SportName != "" || SportDescription != "") 
             {
                 SportsRepo.AddSport(SportName, SportDescription);
+                SportsRepo.RemakeSportsList();
                 OnPropertyChanged("ListOfSports");
             }
         }
@@ -98,6 +112,7 @@ namespace SportsApp.ViewModels
             if (SportName != "" || SportDescription != "") 
             {
                 SportsRepo.RemoveSport(SportName, SportDescription);
+                SportsRepo.RemakeSportsList();
                 OnPropertyChanged("ListOfSports");
             }
         }
@@ -144,6 +159,7 @@ namespace SportsApp.ViewModels
             {
                 this.SportsRepo.teams.TeamName = value;
                 OnPropertyChanged();
+                OnPropertyChanged("CurrentTeamItem");
             }
         }
 
@@ -154,6 +170,7 @@ namespace SportsApp.ViewModels
             {
                 this.SportsRepo.teams.NumberOfPlayers = value;
                 OnPropertyChanged();
+                OnPropertyChanged("CurrentTeamItem");
             }
         }
 
@@ -163,17 +180,31 @@ namespace SportsApp.ViewModels
             set
             {
                 this.SportsRepo.teams.WhichSport = value;
+                OnPropertyChanged();
+                OnPropertyChanged("CurrentTeamItem");
             }
         }
 
-        public List<Teams> ListOfTeams
+        public List<Team> ListOfTeams
         {
             get { return this.SportsRepo.ListOfTeams; }
             set
             {
                 this.SportsRepo.ListOfTeams = value;
-                OnPropertyChanged("ListOfTeams");
+                OnPropertyChanged();
 
+            }
+        }
+
+        public Team CurrentTeamItem
+        {
+            get { return this.SportsRepo.CurrentTeamItem; }
+            set
+            {
+                this.SportsRepo.CurrentTeamItem.TeamName = TeamName;
+                this.SportsRepo.CurrentTeamItem.NumberOfPlayers = NumberOfPlayers;
+                this.SportsRepo.CurrentTeamItem.WhichSport = WhichSport;
+                OnPropertyChanged();
             }
         }
 
@@ -187,6 +218,7 @@ namespace SportsApp.ViewModels
             if (TeamName != "" || WhichSport != "")
             {
                 SportsRepo.AddTeam(TeamName, NumberOfPlayers, WhichSport);
+                SportsRepo.RemakeTeamsList();
                 OnPropertyChanged("ListOfTeams");
             }
         }
@@ -201,6 +233,7 @@ namespace SportsApp.ViewModels
             if (TeamName != "" || WhichSport != "")
             {
                 SportsRepo.RemoveTeam(TeamName, NumberOfPlayers, WhichSport);
+                SportsRepo.RemakeTeamsList();
                 OnPropertyChanged("ListOfTeams");
             }
         }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SportsLibrary
 {
-    interface ITeams
+    interface ITeam
     {
         string TeamName { get; set; }
         int NumberOfPlayers { get; set; }

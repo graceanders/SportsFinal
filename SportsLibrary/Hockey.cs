@@ -5,7 +5,7 @@ using System.Text;
 namespace SportsLibrary
 {
     // =]
-    public class Hockey : Sports
+    public class Hockey : Sport
     {
         public Hockey()
         {

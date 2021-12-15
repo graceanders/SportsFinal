@@ -4,11 +4,8 @@ using System.Text;
 
 namespace SportsLibrary
 {
-    interface ISports
+    interface IPlayer: IPerson
     {
-        string SportName { get;  set; }
-        string SportDescription { get; set; }
-
+        int Number { get; set; }
     }
-
 }

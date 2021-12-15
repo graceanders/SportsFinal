@@ -5,19 +5,19 @@ using System.Text;
 
 namespace SportsLibrary
 {
-    public class Sports: ISports
+    public class Sport: ISport
     {
 
         public string SportName { get; set; }
         public string SportDescription { get; set; }
         
 
-        public Sports()
+        public Sport()
         {
         }
 
 
-        public Sports (string Name, string Description)
+        public Sport (string Name, string Description)
         {
             this.SportName = Name;
             this.SportDescription = Description;

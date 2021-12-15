@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SportsLibrary
 {
-    public class Basketball: Sports
+    public class Basketball: Sport
     {
         public Basketball()
         {

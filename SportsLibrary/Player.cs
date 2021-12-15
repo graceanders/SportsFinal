@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SportsLibrary
 {
-    public class Player : Person
+    public class Player : IPlayer
     {
         /*
          Requirement : Players have names, numbers. Players may be a subclass of person. 
