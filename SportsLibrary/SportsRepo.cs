@@ -9,6 +9,8 @@ namespace SportsLibrary
     {
         public Team teams;
         public Sport sports;
+
+        //held by the team
         public Player playerone;
         public Player playertwo;
 

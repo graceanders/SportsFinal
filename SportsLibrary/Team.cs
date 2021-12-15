@@ -14,6 +14,9 @@ namespace SportsLibrary
         public string WhichSport { get; set; }
 
 
+        //player that belongs to a tema
+        //list of players
+
         public Team() { }
 
         public Team(string Name, int Number, string Team)
@@ -22,5 +25,26 @@ namespace SportsLibrary
             this.NumberOfPlayers = Number;
             this.WhichSport = Team;
         }
+
+        
+
+
     }
+
+    public class SerializableTeam: Team
+    {
+        public void TeamsSave()
+        {
+            string json = SaveLoad.JsonSerialize<Team>(this);
+        }
+
+        public void TeamLoad(string jsonTeam)
+        {
+            Team t = SaveLoad.JsonDeserialize<Team>(jsonTeam);
+            this.TeamName = t.TeamName;
+        }
+    }
+
 }
+
+
