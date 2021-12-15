@@ -81,8 +81,7 @@ namespace SportsApp.ViewModels
 
         private void ExecuteAddSport(object parameter)
         {
-            if (this.SportName == "" || this.SportDescription == "") { }
-            else
+            if (this.SportName != "" || this.SportDescription != "") 
             {
                 SportsRepo.AddSport(this.SportName, this.SportDescription);
                 OnPropertyChanged("SportsList");
@@ -96,8 +95,7 @@ namespace SportsApp.ViewModels
 
         private void ExecuteRemoveSport(object parameter)
         {
-            if (this.SportName == "" || this.SportDescription == "") { }
-            else
+            if (this.SportName != "" || this.SportDescription != "") 
             {
                 SportsRepo.RemoveSport(this.SportName, this.SportDescription);
                 OnPropertyChanged("SportsList");
@@ -186,8 +184,7 @@ namespace SportsApp.ViewModels
 
         private void ExecuteAddTeam(object parameter)
         {
-            if (this.TeamName == "" || this.NumberOfPlayers == 0 || this.WhichSport == "") { }
-            else
+            if (this.TeamName != "" || this.WhichSport != "")
             {
                 SportsRepo.AddTeam(this.TeamName, this.NumberOfPlayers, this.WhichSport);
                 OnPropertyChanged("TeamsList");
@@ -201,8 +198,7 @@ namespace SportsApp.ViewModels
 
         private void ExecuteRemoveTeam(object parameter)
         {
-            if (this.TeamName == "" || this.NumberOfPlayers == 0 || this.WhichSport == "") { }
-            else
+            if (this.TeamName != "" || this.WhichSport != "")
             {
                 SportsRepo.RemoveTeam(this.TeamName, this.NumberOfPlayers, this.WhichSport);
                 OnPropertyChanged("TeamsList");

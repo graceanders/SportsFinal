@@ -97,11 +97,11 @@ namespace SportsApp.ViewModels
 
         private void ExecuteAddPlayerTeamOne(object paramater)
         {
-            if (this.PlayerNameOne == "" || this.PlayerNumberOne == 0) { }
-            else
+            if (this.PlayerNameOne != "")
             {
                 SportsRepo.AddPlayerTeamOne(this.PlayerNameOne, this.PlayerNumberOne);
-            }
+            } 
+            
         }
 
         private bool CanExecuteRemovePlayerTeamOne(object paramater)
@@ -111,9 +111,8 @@ namespace SportsApp.ViewModels
 
         private void ExecuteRemovePlayerTeamOne(object paramater)
         {
-            if (this.PlayerNameOne == "" || this.PlayerNumberOne == 0) { }
-            else
-            {
+            if (this.PlayerNameOne != "") {
+
                 SportsRepo.RemovePlayerTeamOne(this.PlayerNameOne, this.PlayerNumberOne);
             }
         }
@@ -125,8 +124,7 @@ namespace SportsApp.ViewModels
 
         private void ExecuteAddPlayerTeamTwo(object paramater)
         {
-            if (this.PlayerNameTwo == "" || this.PlayerNumberTwo == 0) { }
-            else
+            if (this.PlayerNameTwo != "")
             {
                 SportsRepo.AddPlayerTeamTwo(this.PlayerNameTwo, this.PlayerNumberTwo);
             }
@@ -139,8 +137,7 @@ namespace SportsApp.ViewModels
 
         private void ExecuteRemovePlayerTeamTwo(object paramater)
         {
-            if (this.PlayerNameTwo == "" || this.PlayerNumberTwo == 0) { }
-            else
+            if (this.PlayerNameTwo != "")
             {
                 SportsRepo.RemovePlayerTeamTwo(this.PlayerNameTwo, this.PlayerNumberTwo);
             }
