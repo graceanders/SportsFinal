@@ -69,7 +69,7 @@ namespace SportsApp.ViewModels
             set
             {
                 this.SportsRepo.ListOfSports = value;
-                OnPropertyChanged();
+                OnPropertyChanged("ListOfSports");
 
             }
         }
@@ -81,10 +81,10 @@ namespace SportsApp.ViewModels
 
         private void ExecuteAddSport(object parameter)
         {
-            if (this.SportName != "" || this.SportDescription != "") 
+            if (SportName != "" || SportDescription != "") 
             {
-                SportsRepo.AddSport(this.SportName, this.SportDescription);
-                OnPropertyChanged("SportsList");
+                SportsRepo.AddSport(SportName, SportDescription);
+                OnPropertyChanged("ListOfSports");
             }
         }
 
@@ -95,10 +95,10 @@ namespace SportsApp.ViewModels
 
         private void ExecuteRemoveSport(object parameter)
         {
-            if (this.SportName != "" || this.SportDescription != "") 
+            if (SportName != "" || SportDescription != "") 
             {
-                SportsRepo.RemoveSport(this.SportName, this.SportDescription);
-                OnPropertyChanged("SportsList");
+                SportsRepo.RemoveSport(SportName, SportDescription);
+                OnPropertyChanged("ListOfSports");
             }
         }
 
@@ -172,7 +172,7 @@ namespace SportsApp.ViewModels
             set
             {
                 this.SportsRepo.ListOfTeams = value;
-                OnPropertyChanged("TeamsList");
+                OnPropertyChanged("ListOfTeams");
 
             }
         }
@@ -184,10 +184,10 @@ namespace SportsApp.ViewModels
 
         private void ExecuteAddTeam(object parameter)
         {
-            if (this.TeamName != "" || this.WhichSport != "")
+            if (TeamName != "" || WhichSport != "")
             {
-                SportsRepo.AddTeam(this.TeamName, this.NumberOfPlayers, this.WhichSport);
-                OnPropertyChanged("TeamsList");
+                SportsRepo.AddTeam(TeamName, NumberOfPlayers, WhichSport);
+                OnPropertyChanged("ListOfTeams");
             }
         }
 
@@ -198,10 +198,10 @@ namespace SportsApp.ViewModels
 
         private void ExecuteRemoveTeam(object parameter)
         {
-            if (this.TeamName != "" || this.WhichSport != "")
+            if (TeamName != "" || WhichSport != "")
             {
-                SportsRepo.RemoveTeam(this.TeamName, this.NumberOfPlayers, this.WhichSport);
-                OnPropertyChanged("TeamsList");
+                SportsRepo.RemoveTeam(TeamName, NumberOfPlayers, WhichSport);
+                OnPropertyChanged("ListOfTeams");
             }
         }
 
