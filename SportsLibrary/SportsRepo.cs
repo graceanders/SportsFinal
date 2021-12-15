@@ -35,6 +35,7 @@ namespace SportsLibrary
 
             this.ListOfTeams = new List<Teams>();
             this.ListOfSports = new List<Sports>();
+            PopulateSports();
         }
 
 

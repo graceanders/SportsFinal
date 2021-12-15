@@ -40,11 +40,11 @@
         <Button x:Name="SaveTeambtn" Content="Save" HorizontalAlignment="Left" Margin="506,374,0,0" VerticalAlignment="Top" FontSize="22" Command="{Binding Path= SaveTeamsCommand}" Background="White" Width="64"/>
         <Button x:Name="LoadTeambtn" Content="Load" HorizontalAlignment="Left" Margin="626,374,0,0" VerticalAlignment="Top" FontSize="22" Command="{Binding Path= LoadTeamsCommand}" Background="White" Width="64"/>
         <TextBox x:Name="TeamWhichSporttb" HorizontalAlignment="Left" Margin="632,77,0,0" Text="{Binding WhichSport}" TextWrapping="Wrap" VerticalAlignment="Top" Background="White" Height="31" Width="115" TextAlignment="Left"/>
-        <TextBlock x:Name="SportsListtb" HorizontalAlignment="Left" Margin="55,124,0,0" Text="{Binding ListOfSports}" TextWrapping="Wrap" VerticalAlignment="Top" Height="210" Width="305" Background="White"/>
-        <TextBlock x:Name="SportsListtb_Copy" HorizontalAlignment="Left" Margin="441,129,0,0" Text="{Binding ListOfTeams}" TextWrapping="Wrap" VerticalAlignment="Top" Height="210" Width="305" Background="White"/>
         <Button x:Name="RemoveTeambtn" Content="-" HorizontalAlignment="Left" Margin="435,-1,0,0" VerticalAlignment="Top" FontSize="36" Command="{Binding RemoveTeamCommand}" Height="51" BorderBrush="{x:Null}"/>
         <Button x:Name="RemoveSportbtn" Content="-" HorizontalAlignment="Left" Margin="50,-1,0,0" VerticalAlignment="Top" FontSize="36" Command="{Binding RemoveSportCommand}" Height="51" BorderBrush="{x:Null}"/>
-     
+        <DataGrid x:Name="Sportsdg" Margin="55,124,440,100" ItemsSource="{Binding ListOfSports}"/>
+        <DataGrid x:Name="Teamsdg" Margin="445,124,50,100" ItemsSource="{Binding ListOfTeams}"/>
+
 
     </Grid>
 </Window>

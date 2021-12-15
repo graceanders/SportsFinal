@@ -30,7 +30,6 @@ namespace SportsApp.Views
             vm = new SportViewModel(sr);
 
             this.DataContext = vm;
-
         }
     }
 }
