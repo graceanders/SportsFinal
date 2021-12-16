@@ -20,8 +20,7 @@ namespace SportsLibrary
         public List<Team> ListOfTeams { get; set; }
         public List<Sport> ListOfSports { get; set; }
 
-        public List<Player> TeamOne { get; set; }
-        public List<Player> TeamTwo { get; set; }
+        
 
         string jsonS, jsonT;
 
@@ -116,11 +115,11 @@ namespace SportsLibrary
             this.CurrentPlayer.Name = Name;
             this.CurrentPlayer.Number = Number;
 
-            if (this.TeamOne.Contains(CurrentPlayer))
-            {
-                this.TeamOne.Remove(CurrentPlayer);
-            }
-            return;
+            //if (this.TeamOne.Contains(CurrentPlayer))
+            //{
+            //    this.TeamOne.Remove(CurrentPlayer);
+            //}
+            //return;
 
         }
 
@@ -129,7 +128,7 @@ namespace SportsLibrary
             this.CurrentPlayer.Name = Name;
             this.CurrentPlayer.Number = Number;
 
-            this.TeamOne.Add(CurrentPlayer);
+            //this.TeamOne.Add(CurrentPlayer);
         }
 
         public void RemovePlayerTeamTwo(string Name, int Number)
@@ -137,11 +136,11 @@ namespace SportsLibrary
             this.CurrentPlayer.Name = Name;
             this.CurrentPlayer.Number = Number;
 
-            if (this.TeamTwo.Contains(CurrentPlayer))
-            {
-                this.TeamTwo.Remove(CurrentPlayer);
-            }
-            return;
+            //if (this.TeamTwo.Contains(CurrentPlayer))
+            //{
+            //    this.TeamTwo.Remove(CurrentPlayer);
+            //}
+            //return;
 
         }
 
@@ -150,7 +149,7 @@ namespace SportsLibrary
             this.CurrentPlayer.Name = Name;
             this.CurrentPlayer.Number = Number;
 
-            this.TeamTwo.Add(CurrentPlayer);
+            //this.TeamTwo.Add(CurrentPlayer);
         }
 
         public void SaveSport()

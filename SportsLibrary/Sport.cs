@@ -25,4 +25,19 @@ namespace SportsLibrary
 
      
     }
+
+    public class SerializableSport : Sport
+    {
+        public void SportSave()
+        {
+            string json = SaveLoad.JsonSerialize<Sport>(this);
+        }
+
+        public void SportLoad(string jsonSport)
+        {
+            Sport s = SaveLoad.JsonDeserialize<Sport>(jsonSport);
+            this.SportName = s.SportName;
+            this.SportDescription = s.SportDescription;
+        }
+    }
 }

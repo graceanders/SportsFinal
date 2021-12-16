@@ -70,25 +70,25 @@ namespace SportsApp.ViewModels
             }
         }
 
-        public List<Player> TeamOne
-        {
-            get { return this.SportsRepo.TeamOne; }
-            set
-            {
-                this.SportsRepo.TeamOne = value;
-                OnPropertyChanged();
-            }
-        }
+        //public List<Player> TeamOne
+        //{
+        //    get { return this.SportsRepo.TeamOne; }
+        //    set
+        //    {
+        //        this.SportsRepo.TeamOne = value;
+        //        OnPropertyChanged();
+        //    }
+        //}
 
-        public List<Player> TeamTwo
-        {
-            get { return this.SportsRepo.TeamTwo; }
-            set
-            {
-                this.SportsRepo.TeamTwo = value;
-                OnPropertyChanged();
-            }
-        }
+        //public List<Player> TeamTwo
+        //{
+        //    get { return this.SportsRepo.TeamTwo; }
+        //    set
+        //    {
+        //        this.SportsRepo.TeamTwo = value;
+        //        OnPropertyChanged();
+        //    }
+        //}
 
         private bool CanExecuteAddPlayerTeamOne(object paramater)
         {
