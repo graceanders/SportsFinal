@@ -21,6 +21,8 @@ namespace SportsLibrary
 
         public Team() { }
 
+        public string jsonT; 
+
         public Team(string Name, int Number, string Team)
         {
             this.TeamName = Name;
@@ -34,7 +36,7 @@ namespace SportsLibrary
     {
         public void TeamsSave()
         {
-            string json = SaveLoad.JsonSerialize<Team>(this);
+            string jsonT = SaveLoad.JsonSerialize<Team>(this);
         }
 
         public void TeamLoad(string jsonTeam)

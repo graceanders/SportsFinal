@@ -7,8 +7,9 @@ namespace SportsLibrary
 {
     public class SportsRepo : ISportsRepo
     {
-        public Team teams;
         public Sport sports;
+        public SerializableSport SerializableSport;
+
 
         //held by the team
         public Player playerone;
@@ -20,14 +21,13 @@ namespace SportsLibrary
         public List<Team> ListOfTeams { get; set; }
         public List<Sport> ListOfSports { get; set; }
 
-        
-
-        string jsonS, jsonT;
+       
 
         public SportsRepo()
         {
-            teams = new Team();
             sports = new Sport();
+            SerializableSport = new SerializableSport();
+
             playerone = new Player();
             playertwo = new Player();
 
@@ -154,25 +154,15 @@ namespace SportsLibrary
 
         public void SaveSport()
         {
-            jsonS = JsonConvert.SerializeObject(sports);
+            SerializableSport.SportSave();
         }
 
         public void LoadSport()
         {
-            var jsonSport = JsonConvert.DeserializeObject<Sport>(jsonS);
-            sports = jsonSport;
+            SerializableSport.SportLoad(sports.jsonS);
         }
 
-        public void SaveTeam()
-        {
-            jsonT = JsonConvert.SerializeObject(teams);
-        }
-
-        public void LoadTeam()
-        {
-            var jsonTeams = JsonConvert.DeserializeObject<Team>(jsonT);
-            teams = jsonTeams;
-        }
+        
 
     }
 }

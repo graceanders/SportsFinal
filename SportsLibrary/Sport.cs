@@ -10,7 +10,8 @@ namespace SportsLibrary
 
         public string SportName { get; set; }
         public string SportDescription { get; set; }
-        
+
+        public string jsonS;
 
         public Sport()
         {
@@ -30,7 +31,7 @@ namespace SportsLibrary
     {
         public void SportSave()
         {
-            string json = SaveLoad.JsonSerialize<Sport>(this);
+            jsonS = SaveLoad.JsonSerialize<Sport>(this);
         }
 
         public void SportLoad(string jsonSport)
