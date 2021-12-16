@@ -10,6 +10,7 @@ namespace SportsApp.ViewModels
     class TeamViewModel : BaseViewModel
     {
         SportsRepo SportsRepo;
+        TeamsRepo TeamsRepo;
          
         public ICommand AddPlayerTeamOneCommand { get; set; }
         public ICommand RemovePlayerTeamOneCommand { get; set; }
@@ -32,40 +33,40 @@ namespace SportsApp.ViewModels
 
         public string PlayerNameOne
         {
-            get { return this.SportsRepo.playerone.Name; }
+            get { return this.TeamsRepo.teams.playerone.Name; }
             set
             {
-                this.SportsRepo.playerone.Name = value;
+                this.TeamsRepo.teams.playerone.Name = value;
                 OnPropertyChanged();
             }
         }
          
         public int PlayerNumberOne
         {
-            get { return this.SportsRepo.playerone.Number; }
+            get { return this.TeamsRepo.teams.playerone.Number; }
             set
             {
-                this.SportsRepo.playerone.Number = value;
+                this.TeamsRepo.teams.playerone.Number = value;
                 OnPropertyChanged();
             }
         }
 
         public string PlayerNameTwo
         {
-            get { return this.SportsRepo.playertwo.Name; }
+            get { return this.TeamsRepo.teams.playertwo.Name; }
             set
             {
-                this.SportsRepo.playertwo.Name = value;
+                this.TeamsRepo.teams.playertwo.Name = value;
                 OnPropertyChanged();
             }
         }
 
         public int PlayerNumberTwo
         {
-            get { return this.SportsRepo.playertwo.Number; }
+            get { return this.TeamsRepo.teams.playertwo.Number; }
             set
             {
-                this.SportsRepo.playertwo.Number = value;
+                this.TeamsRepo.teams.playertwo.Number = value;
                 OnPropertyChanged();
             }
         }
@@ -99,7 +100,7 @@ namespace SportsApp.ViewModels
         {
             if (this.PlayerNameOne != "")
             {
-                SportsRepo.AddPlayerTeamOne(this.PlayerNameOne, this.PlayerNumberOne);
+                TeamsRepo.AddPlayerTeamOne(this.PlayerNameOne, this.PlayerNumberOne);
             } 
             
         }
@@ -113,7 +114,7 @@ namespace SportsApp.ViewModels
         {
             if (this.PlayerNameOne != "") {
 
-                SportsRepo.RemovePlayerTeamOne(this.PlayerNameOne, this.PlayerNumberOne);
+                TeamsRepo.RemovePlayerTeamOne(this.PlayerNameOne, this.PlayerNumberOne);
             }
         }
 
@@ -126,7 +127,7 @@ namespace SportsApp.ViewModels
         {
             if (this.PlayerNameTwo != "")
             {
-                SportsRepo.AddPlayerTeamTwo(this.PlayerNameTwo, this.PlayerNumberTwo);
+                TeamsRepo.AddPlayerTeamTwo(this.PlayerNameTwo, this.PlayerNumberTwo);
             }
         }
 
@@ -139,7 +140,7 @@ namespace SportsApp.ViewModels
         {
             if (this.PlayerNameTwo != "")
             {
-                SportsRepo.RemovePlayerTeamTwo(this.PlayerNameTwo, this.PlayerNumberTwo);
+                TeamsRepo.RemovePlayerTeamTwo(this.PlayerNameTwo, this.PlayerNumberTwo);
             }
         }
     }

@@ -10,6 +10,8 @@ namespace SportsApp.ViewModels
     {
         SportsRepo SportsRepo;
 
+        TeamsRepo TeamsRepo;
+
         //List<Sports> SportsList { get => SportsRepo.ListOfSports;}
 
         public ICommand AddSportCommand { get; set; }
@@ -27,7 +29,7 @@ namespace SportsApp.ViewModels
         bool SportsLoadExecutable;
         bool TeamsLoadExecutable;
 
-        public SportViewModel(SportsRepo sr)
+        public SportViewModel(SportsRepo sr, TeamsRepo tr)
         {
             this.SportsRepo = sr;
             AddSportCommand = new BasicCommand(ExecuteAddSport, CanExecuteAddSport);
@@ -35,6 +37,7 @@ namespace SportsApp.ViewModels
             SaveSportsCommand = new BasicCommand(ExecuteSaveSport, CanExecuteSaveSport);
             LoadSportsCommand = new BasicCommand(ExecuteLoadSport, CanExecuteLoadSport);
 
+            this.TeamsRepo = tr; 
             AddTeamCommand = new BasicCommand(ExecuteAddTeam, CanExecuteAddTeam);
             RemoveTeamCommand = new BasicCommand(ExecuteRemoveTeam, CanExecuteRemoveTeam);
             //AddTeamsToSportsCommand = new BasicCommand(ExecuteAddTeamsToSports, CanExecuteAddTeamsToSports);
@@ -154,10 +157,10 @@ namespace SportsApp.ViewModels
 
         public string TeamName
         {
-            get { return this.SportsRepo.teams.TeamName; }
+            get { return this.TeamsRepo.teams.TeamName; }
             set
             {
-                this.SportsRepo.teams.TeamName = value;
+                this.TeamsRepo.teams.TeamName = value;
                 OnPropertyChanged();
                 OnPropertyChanged("CurrentTeamItem");
             }
@@ -165,10 +168,10 @@ namespace SportsApp.ViewModels
 
         public int NumberOfPlayers
         {
-            get { return this.SportsRepo.teams.NumberOfPlayers; }
+            get { return this.TeamsRepo.teams.NumberOfPlayers; }
             set
             {
-                this.SportsRepo.teams.NumberOfPlayers = value;
+                this.TeamsRepo.teams.NumberOfPlayers = value;
                 OnPropertyChanged();
                 OnPropertyChanged("CurrentTeamItem");
             }
@@ -176,10 +179,10 @@ namespace SportsApp.ViewModels
 
         public string WhichSport
         {
-            get { return this.SportsRepo.teams.WhichSport; }
+            get { return this.TeamsRepo.teams.WhichSport; }
             set
             {
-                this.SportsRepo.teams.WhichSport = value;
+                this.TeamsRepo.teams.WhichSport = value;
                 OnPropertyChanged();
                 OnPropertyChanged("CurrentTeamItem");
             }
@@ -187,10 +190,10 @@ namespace SportsApp.ViewModels
 
         public List<Team> ListOfTeams
         {
-            get { return this.SportsRepo.ListOfTeams; }
+            get { return this.TeamsRepo.ListOfTeams; }
             set
             {
-                this.SportsRepo.ListOfTeams = value;
+                this.TeamsRepo.ListOfTeams = value;
                 OnPropertyChanged();
 
             }
@@ -198,12 +201,12 @@ namespace SportsApp.ViewModels
 
         public Team CurrentTeamItem
         {
-            get { return this.SportsRepo.CurrentTeamItem; }
+            get { return this.TeamsRepo.CurrentTeamItem; }
             set
             {
-                this.SportsRepo.CurrentTeamItem.TeamName = TeamName;
-                this.SportsRepo.CurrentTeamItem.NumberOfPlayers = NumberOfPlayers;
-                this.SportsRepo.CurrentTeamItem.WhichSport = WhichSport;
+                this.TeamsRepo.CurrentTeamItem.TeamName = TeamName;
+                this.TeamsRepo.CurrentTeamItem.NumberOfPlayers = NumberOfPlayers;
+                this.TeamsRepo.CurrentTeamItem.WhichSport = WhichSport;
                 OnPropertyChanged();
             }
         }
@@ -217,8 +220,8 @@ namespace SportsApp.ViewModels
         {
             if (TeamName != "" || WhichSport != "")
             {
-                SportsRepo.AddTeam(TeamName, NumberOfPlayers, WhichSport);
-                SportsRepo.RemakeTeamsList();
+                TeamsRepo.AddTeam(TeamName, NumberOfPlayers, WhichSport);
+                TeamsRepo.RemakeTeamsList();
                 OnPropertyChanged("ListOfTeams");
             }
         }
@@ -232,8 +235,8 @@ namespace SportsApp.ViewModels
         {
             if (TeamName != "" || WhichSport != "")
             {
-                SportsRepo.RemoveTeam(TeamName, NumberOfPlayers, WhichSport);
-                SportsRepo.RemakeTeamsList();
+                TeamsRepo.RemoveTeam(TeamName, NumberOfPlayers, WhichSport);
+                TeamsRepo.RemakeTeamsList();
                 OnPropertyChanged("ListOfTeams");
             }
         }
@@ -245,7 +248,7 @@ namespace SportsApp.ViewModels
 
         private void ExecuteSaveTeams(object parameter)
         {
-            SportsRepo.SaveTeam();
+            TeamsRepo.SaveTeam();
             TeamsLoadExecutable = true;
         }
 
@@ -263,7 +266,7 @@ namespace SportsApp.ViewModels
 
         private void ExecuteLoadTeams(object parameter)
         {
-            SportsRepo.LoadTeam();
+            TeamsRepo.LoadTeam();
 
             OnPropertyChanged("Name");
             OnPropertyChanged("Description");

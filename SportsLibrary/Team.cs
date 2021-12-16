@@ -16,8 +16,8 @@ namespace SportsLibrary
         public List<Player> TeamOne { get; set; }
         public List<Player> TeamTwo { get; set; }
 
-        //player that belongs to a tema
-        //list of players
+        public Player playerone;
+        public Player playertwo;
 
         public Team() { }
 
@@ -28,8 +28,10 @@ namespace SportsLibrary
             this.TeamName = Name;
             this.NumberOfPlayers = Number;
             this.WhichSport = Team;
-        }
 
+            playerone = new Player();
+            playertwo = new Player();
+        }
     }
 
     public class SerializableTeam: Team
