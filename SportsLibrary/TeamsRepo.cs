@@ -10,7 +10,7 @@ namespace SportsLibrary
         public SerializableTeam SerializableTeam;
 
         public Team CurrentTeamItem = new Team("", 0);
-        
+
 
         public List<Team> ListOfTeams { get; set; }
 
@@ -48,6 +48,11 @@ namespace SportsLibrary
         {
             this.ListOfTeams.RemoveAll(u => u.TeamName.StartsWith(t.TeamName));
 
+        }
+
+        public virtual void AddTeamToSport(Team t, Sport sport)
+        {
+            Team teamssport = new Team(t, sport);
         }
 
         public void SaveTeam()
