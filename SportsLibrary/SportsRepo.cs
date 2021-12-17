@@ -40,14 +40,6 @@ namespace SportsLibrary
             ListOfSports.Add(hockey);
         }
 
-        //public void RemakeSportsList()
-        //{
-        //    foreach(Sport s in ListOfSports)
-        //    {
-        //        AddSport(s);
-        //    }
-        //}
-
         public virtual void AddSport(Sport s)
         {
             this.ListOfSports.Add(s);
@@ -60,8 +52,6 @@ namespace SportsLibrary
 
             this.ListOfSports.Add(CurrentSportItem);
         }
-
-        //issues
 
         public virtual void RemoveSport(string Name, string Description)
         {

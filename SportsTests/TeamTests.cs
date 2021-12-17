@@ -16,7 +16,7 @@ namespace SportsTests
             Team t;
 
             //Act
-            t = new Team("The Jerzeys",5);
+            t = new Team("The Jerzeys", 5);
 
             //Assert
             Assert.AreEqual(t.TeamName, "The Jerzeys");
@@ -33,7 +33,7 @@ namespace SportsTests
 
             //Act
             tr = new TeamsRepo();
-            t = new Team("The Goldens",7);
+            t = new Team("The Goldens", 7);
 
             tr.AddTeam(t);
 
@@ -69,7 +69,7 @@ namespace SportsTests
 
             //Act
             tr = new TeamsRepo();
-            test = new Team("Yellow",8);
+            test = new Team("Yellow", 8);
 
             tr.RemoveTeam(test);
 
@@ -87,7 +87,7 @@ namespace SportsTests
             //Act
             tr = new TeamsRepo();
             int emptycount = tr.ListOfTeams.Count;
-            tr.AddTeam("Blue Jays",2);
+            tr.AddTeam("Blue Jays", 2);
             int addcount = tr.ListOfTeams.Count;
 
             tr.RemoveTeam("Blue Jays", 2);
@@ -104,10 +104,24 @@ namespace SportsTests
         public void AssignTeamToSportTest()
         {
             //Arrange
+            TeamsRepo tr;
+            Sport h;
+            Team team;
+            Team teamwithsport;
 
             //Act
+            tr = new TeamsRepo();
+            h = new Hockey();
+            team = new Team("Blackhawks", 20);
+            teamwithsport = new Team(team, h);
 
             //Assert
+            Assert.AreEqual(teamwithsport.TeamsSport, h);
+        }
+
+        [TestMethod]
+        public void TeamSaveAndLoadTests()
+        {
 
         }
 

@@ -4,58 +4,84 @@ using System.Text;
 
 namespace SportsLibrary
 {
-    public class PlayerRepo
+    public class PlayerRepo : IPlayerRepo
     {
-        public Team teams;
-
         public Player CurrentPlayer = new Player("", 0);
 
-        public PlayerRepo()
+        public PlayerRepo() { }
+
+
+        public List<Player> RemovePlayer(List<Player> list, Player p)
         {
-            teams = new Team();
+            list.RemoveAll(u => u.Name.StartsWith(p.Name));
+            return list;
         }
 
-        public void RemovePlayerTeamOne(Player p)
-        {
-            teams.TeamOne.RemoveAll(u => u.Name.StartsWith(p.Name));
-
-        }
-
-        public void RemovePlayerTeamOne(string Name, int Number)
+        public List<Player> RemovePlayer(List<Player> list, string Name, int Number)
         {
             this.CurrentPlayer.Name = Name;
-            this.CurrentPlayer.Number = Number;
+            this.CurrentPlayer.PlayerNumber = Number;
 
-            teams.TeamOne.RemoveAll(u => u.Name.StartsWith(CurrentPlayer.Name));
+            list.RemoveAll(u => u.Name.StartsWith(CurrentPlayer.Name));
+            return list;
         }
 
-        public void AddPlayerTeamOne(string Name, int Number)
+        public List<Player> AddPlayer(List<Player> list, Player p)
+        {
+            list.Add(p);
+            return list;
+        }
+
+        public List<Player> AddPlayer(List<Player> list, string Name, int Number)
         {
             this.CurrentPlayer.Name = Name;
-            this.CurrentPlayer.Number = Number;
+            this.CurrentPlayer.PlayerNumber = Number;
 
-            teams.TeamOne.Add(CurrentPlayer);
+            list.Add(CurrentPlayer);
+            return list;
         }
 
-        public void RemovePlayerTeamTwo(string Name, int Number)
-        {
-            this.CurrentPlayer.Name = Name;
-            this.CurrentPlayer.Number = Number;
+        //public void RemovePlayerTeamOne(Player p)
+        //{
+        //    teams.TeamOne.RemoveAll(u => u.Name.StartsWith(p.Name));
 
-            if (teams.TeamTwo.Contains(CurrentPlayer))
-            {
-                teams.TeamTwo.Remove(CurrentPlayer);
-            }
-            return;
+        //}
 
-        }
+        //public void RemovePlayerTeamOne(string Name, int Number)
+        //{
+        //    this.CurrentPlayer.Name = Name;
+        //    this.CurrentPlayer.Number = Number;
 
-        public void AddPlayerTeamTwo(string Name, int Number)
-        {
-            this.CurrentPlayer.Name = Name;
-            this.CurrentPlayer.Number = Number;
+        //    teams.TeamOne.RemoveAll(u => u.Name.StartsWith(CurrentPlayer.Name));
+        //}
 
-            teams.TeamTwo.Add(CurrentPlayer);
-        }
+        //public void AddPlayerTeamOne(string Name, int Number)
+        //{
+        //    this.CurrentPlayer.Name = Name;
+        //    this.CurrentPlayer.Number = Number;
+
+        //    teams.TeamOne.Add(CurrentPlayer);
+        //}
+
+        //public void RemovePlayerTeamTwo(string Name, int Number)
+        //{
+        //    this.CurrentPlayer.Name = Name;
+        //    this.CurrentPlayer.Number = Number;
+
+        //    if (teams.TeamTwo.Contains(CurrentPlayer))
+        //    {
+        //        teams.TeamTwo.Remove(CurrentPlayer);
+        //    }
+        //    return;
+
+        //}
+
+        //public void AddPlayerTeamTwo(string Name, int Number)
+        //{
+        //    this.CurrentPlayer.Name = Name;
+        //    this.CurrentPlayer.Number = Number;
+
+        //    teams.TeamTwo.Add(CurrentPlayer);
+        //}
     }
 }

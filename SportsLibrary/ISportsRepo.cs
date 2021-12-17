@@ -6,12 +6,17 @@ namespace SportsLibrary
 {
     interface ISportsRepo
     {
-        public void RemovePlayer(List<Player> ListName) { }
+        List<Sport> ListOfSports { get; set; }
 
-        public void AddPlayer(List<Player> ListName) { }
+        void PopulateSports();
 
-        public void RemoveSport(List<Sport> ListName) { }
+        void AddSport(Sport s);
+        void AddSport(string Name, string Description);
 
-        public void AddSport(List<Sport> ListName) { }
+        void RemoveSport(string Name, string Description);
+        void RemoveSport(Sport s);
+
+        void SaveSport();
+        void LoadSport();
     }
 }

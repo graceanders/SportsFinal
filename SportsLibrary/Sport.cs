@@ -11,9 +11,7 @@ namespace SportsLibrary
         public string SportName { get; set; }
         public string SportDescription { get; set; }
 
-        public Sport()
-        {
-        }
+        public Sport() { }
 
 
         public Sport (string Name, string Description)

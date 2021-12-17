@@ -11,14 +11,13 @@ namespace SportsLibrary
         public string TeamName { get; set; }
         public int NumberOfPlayers { get; set; }
 
-        public List<Player> TeamOne { get; set; }
-        public List<Player> TeamTwo { get; set; }
 
         public Sport TeamsSport { get; set; }
 
         public string jsonT;
 
-        public Team() : this(new Sport()) { }
+        //public Team() : this(new Sport()) { }
+        public Team() { }
 
         public Team(string Name, int Number)
         {
@@ -26,7 +25,7 @@ namespace SportsLibrary
             this.NumberOfPlayers = Number;
         }
 
-        public Team(Sport sport)
+        public Team(Team t, Sport sport)
         {
             this.TeamsSport = sport;
         }

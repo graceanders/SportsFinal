@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SportsLibrary
 {
-    public class TeamsRepo
+    public class TeamsRepo : ITeamRepo
     {
         public Team teams;
         public SerializableTeam SerializableTeam;
