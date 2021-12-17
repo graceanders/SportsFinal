@@ -11,34 +11,32 @@ namespace SportsLibrary
         public string TeamName { get; set; }
         public int NumberOfPlayers { get; set; }
 
-        public string WhichSport { get; set; }
-
         public List<Player> TeamOne { get; set; }
         public List<Player> TeamTwo { get; set; }
 
-        public Player playerone;
-        public Player playertwo;
+        public Sport TeamsSport { get; set; }
 
-        public Team() { }
+        public string jsonT;
 
-        public string jsonT; 
+        public Team() : this(new Sport()) { }
 
-        public Team(string Name, int Number, string Team)
+        public Team(string Name, int Number)
         {
             this.TeamName = Name;
             this.NumberOfPlayers = Number;
-            this.WhichSport = Team;
+        }
 
-            playerone = new Player();
-            playertwo = new Player();
+        public Team(Sport sport)
+        {
+            this.TeamsSport = sport;
         }
     }
 
     public class SerializableTeam: Team
     {
-        public void TeamsSave()
+        public void TeamsSave(Team t)
         {
-            string jsonT = SaveLoad.JsonSerialize<Team>(this);
+            string jsonT = SaveLoad.JsonSerialize<Team>(t);
         }
 
         public void TeamLoad(string jsonTeam)

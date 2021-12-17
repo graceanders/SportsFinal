@@ -10,9 +10,11 @@ namespace SportsLibrary
         public SerializableTeam SerializableTeam;
 
         public Team CurrentTeamItem = new Team("", 0, "");
-        public Player CurrentPlayer = new Player("", 0);
+        
 
         public List<Team> ListOfTeams { get; set; }
+
+        public string jsonT;
 
         public TeamsRepo()
         {
@@ -20,22 +22,9 @@ namespace SportsLibrary
             this.ListOfTeams = new List<Team>();
         }
 
-        public void RemakeTeamsList()
+        public virtual void AddTeam(Team t)
         {
-            foreach (Team t in ListOfTeams)
-            {
-                ListOfTeams.Add(t);
-            }
-        }
-
-        public void SaveTeam()
-        {
-            SerializableTeam.TeamsSave();
-        }
-
-        public void LoadTeam()
-        {
-            SerializableTeam.TeamLoad(teams.jsonT);
+            this.ListOfTeams.Add(t);
         }
 
         public virtual void AddTeam(string Name, int NumberOfPlayers, string WhichSport)
@@ -53,56 +42,25 @@ namespace SportsLibrary
             this.CurrentTeamItem.NumberOfPlayers = NumberOfPlayers;
             this.CurrentTeamItem.WhichSport = WhichSport;
 
-            if (this.ListOfTeams.Contains(CurrentTeamItem))
-            {
-                this.ListOfTeams.Remove(CurrentTeamItem);
-            }
-            return;
+            this.ListOfTeams.RemoveAll(u => u.TeamName.StartsWith(Name));
 
         }
 
-        //Sports
-
-        public void RemovePlayerTeamOne(string Name, int Number)
+        public virtual void RemoveTeam(Team t)
         {
-            this.CurrentPlayer.Name = Name;
-            this.CurrentPlayer.Number = Number;
-
-            if (teams.TeamOne.Contains(CurrentPlayer))
-            {
-                teams.TeamOne.Remove(CurrentPlayer);
-            }
-            return;
+            this.ListOfTeams.RemoveAll(u => u.TeamName.StartsWith(t.TeamName));
 
         }
 
-        public void AddPlayerTeamOne(string Name, int Number)
+        public void SaveTeam()
         {
-            this.CurrentPlayer.Name = Name;
-            this.CurrentPlayer.Number = Number;
-
-            teams.TeamOne.Add(CurrentPlayer);
+            SerializableTeam.TeamsSave(this.teams);
         }
 
-        public void RemovePlayerTeamTwo(string Name, int Number)
+        public void LoadTeam()
         {
-            this.CurrentPlayer.Name = Name;
-            this.CurrentPlayer.Number = Number;
-
-            if (teams.TeamTwo.Contains(CurrentPlayer))
-            {
-                teams.TeamTwo.Remove(CurrentPlayer);
-            }
-            return;
-
+            SerializableTeam.TeamLoad(teams.jsonT);
         }
-
-        public void AddPlayerTeamTwo(string Name, int Number)
-        {
-            this.CurrentPlayer.Name = Name;
-            this.CurrentPlayer.Number = Number;
-
-            teams.TeamTwo.Add(CurrentPlayer);
-        }
+        
     }
 }

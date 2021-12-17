@@ -100,7 +100,7 @@ namespace SportsApp.ViewModels
             if (SportName != "" || SportDescription != "") 
             {
                 SportsRepo.AddSport(SportName, SportDescription);
-                SportsRepo.RemakeSportsList();
+                //SportsRepo.RemakeSportsList();
                 OnPropertyChanged("ListOfSports");
             }
         }
@@ -115,7 +115,7 @@ namespace SportsApp.ViewModels
             if (SportName != "" || SportDescription != "") 
             {
                 SportsRepo.RemoveSport(SportName, SportDescription);
-                SportsRepo.RemakeSportsList();
+                //SportsRepo.RemakeSportsList();
                 OnPropertyChanged("ListOfSports");
             }
         }

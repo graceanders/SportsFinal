@@ -15,6 +15,8 @@ namespace SportsLibrary
         Sport basketball;
         Sport hockey;
 
+        public string jsonS;
+
         public List<Sport> ListOfSports { get; set; }
 
         public Sport CurrentSportItem = new Sport("", "");
@@ -38,14 +40,18 @@ namespace SportsLibrary
             ListOfSports.Add(hockey);
         }
 
-        public void RemakeSportsList()
+        //public void RemakeSportsList()
+        //{
+        //    foreach(Sport s in ListOfSports)
+        //    {
+        //        AddSport(s);
+        //    }
+        //}
+
+        public virtual void AddSport(Sport s)
         {
-            foreach(Sport s in ListOfSports)
-            {
-                ListOfSports.Add(s);
-            }
+            this.ListOfSports.Add(s);
         }
-        
 
         public virtual void AddSport(string Name, string Description)
         {
@@ -62,7 +68,7 @@ namespace SportsLibrary
             this.CurrentSportItem.SportName = Name;
             this.CurrentSportItem.SportDescription = Description;
 
-            ListOfSports.RemoveAll(u => u.SportName.StartsWith(Name));
+            this.ListOfSports.RemoveAll(u => u.SportName.StartsWith(Name));
 
         }
 
@@ -74,12 +80,12 @@ namespace SportsLibrary
 
         public void SaveSport()
         {
-            SerializableSport.SportSave();
+            jsonS = SerializableSport.SportSave();
         }
 
         public void LoadSport()
         {
-            SerializableSport.SportLoad(sports.jsonS);
+            SerializableSport.SportLoad(jsonS);
         }
 
         

@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Newtonsoft.Json;
 using SportsLibrary;
 using System.Collections.Generic;
 
@@ -7,7 +8,6 @@ namespace SportsTests
     [TestClass]
     public class SportTests
     {
-        public List<Sport> TestList;
 
         [TestMethod]
         public void BasketballTests()
@@ -58,21 +58,39 @@ namespace SportsTests
         public void AddSportTest()
         {
             //Arrange
+            SportsRepo sr;
             Sport s;
 
             //Act
+            sr = new SportsRepo();
             s = new Sport("Volleyball", "a game played by two teams, usually of six players on a side, in which the players use their hands to bat a ball back and forth over a high net, trying to make the ball touch the court within the opponents' playing area before it can be returned.");
 
-            this.TestList = new List<Sport>();
-            TestList.Add(s);
+            sr.AddSport(s);
 
             //Assert
-            Assert.IsTrue(TestList.Contains(s));
+            Assert.IsTrue(sr.ListOfSports.Contains(s));
 
         }
 
         [TestMethod]
-        public void RemoveExistingSportTest()
+        public void AddSportByName()
+        {
+            //Arrange
+            SportsRepo sr;
+            Sport s;
+
+            //Act
+            sr = new SportsRepo();
+            s = new Sport("Volleyball", "a game played by two teams, usually of six players on a side, in which the players use their hands to bat a ball back and forth over a high net, trying to make the ball touch the court within the opponents' playing area before it can be returned.");
+
+            sr.AddSport("Volleyball", "a game played by two teams, usually of six players on a side, in which the players use their hands to bat a ball back and forth over a high net, trying to make the ball touch the court within the opponents' playing area before it can be returned.");
+
+            //Assert
+            Assert.AreEqual(sr.ListOfSports[2].SportName, s.SportName);
+        }
+
+        [TestMethod]
+        public void RemoveSportByNameTest()
         {
             //Arrange
             SportsRepo sr;
@@ -104,5 +122,27 @@ namespace SportsTests
             //Assert
             Assert.IsFalse(sr.ListOfSports.Contains(b));
         }
+
+
+        [TestMethod]
+        public void SportSaveAndLoadTest()
+        {
+            //Arrange
+            SportsRepo sr;
+            Sport b;
+            
+            //Act
+            sr = new SportsRepo();
+            b = new Basketball();
+
+            List<Sport> sports = sr.ListOfSports;
+            sr.SerializableSport.SportSave(); //jsonS
+            string newtonsoft;
+
+            //Assert
+            newtonsoft = JsonConvert.SerializeObject(b);
+            Assert.AreEqual(sr.jsonS, newtonsoft);
+        }
     }
+    
 }
