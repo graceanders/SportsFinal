@@ -26,12 +26,7 @@ namespace SportsLibrary
             this.CurrentPlayer.Name = Name;
             this.CurrentPlayer.Number = Number;
 
-            if (teams.TeamOne.Contains(CurrentPlayer))
-            {
-                teams.TeamOne.Remove(CurrentPlayer);
-            }
-            return;
-
+            teams.TeamOne.RemoveAll(u => u.Name.StartsWith(CurrentPlayer.Name));
         }
 
         public void AddPlayerTeamOne(string Name, int Number)

@@ -9,7 +9,7 @@ namespace SportsLibrary
         public Team teams;
         public SerializableTeam SerializableTeam;
 
-        public Team CurrentTeamItem = new Team("", 0, "");
+        public Team CurrentTeamItem = new Team("", 0);
         
 
         public List<Team> ListOfTeams { get; set; }
@@ -27,20 +27,18 @@ namespace SportsLibrary
             this.ListOfTeams.Add(t);
         }
 
-        public virtual void AddTeam(string Name, int NumberOfPlayers, string WhichSport)
+        public virtual void AddTeam(string Name, int NumberOfPlayers)
         {
             this.CurrentTeamItem.TeamName = Name;
             this.CurrentTeamItem.NumberOfPlayers = NumberOfPlayers;
-            this.CurrentTeamItem.WhichSport = WhichSport;
 
             this.ListOfTeams.Add(CurrentTeamItem);
         }
 
-        public virtual void RemoveTeam(string Name, int NumberOfPlayers, string WhichSport)
+        public virtual void RemoveTeam(string Name, int NumberOfPlayers)
         {
             this.CurrentTeamItem.TeamName = Name;
             this.CurrentTeamItem.NumberOfPlayers = NumberOfPlayers;
-            this.CurrentTeamItem.WhichSport = WhichSport;
 
             this.ListOfTeams.RemoveAll(u => u.TeamName.StartsWith(Name));
 

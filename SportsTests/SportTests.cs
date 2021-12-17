@@ -107,7 +107,7 @@ namespace SportsTests
         }
 
         [TestMethod]
-        public void Test()
+        public void RemoveSportTest()
         {
             //Arrange
             SportsRepo sr;
