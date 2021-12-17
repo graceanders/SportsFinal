@@ -6,9 +6,16 @@ namespace SportsLibrary
 {
     public class PlayerRepo : IPlayerRepo
     {
+        public Player player;
+
         public Player CurrentPlayer = new Player("", 0);
 
-        public PlayerRepo() { }
+
+        public PlayerRepo()
+        {
+            player = new Player();
+
+        }
 
 
         public List<Player> RemovePlayer(List<Player> list, Player p)

@@ -9,9 +9,6 @@ namespace SportsLibrary
         public string Name { get; set; }
         public int PlayerNumber { get; set; }
 
-        public List<Player> TeamOne { get; set; }
-        public List<Player> TeamTwo { get; set; }
-
         public Player() { }
 
         public Player (string Name, int Number)

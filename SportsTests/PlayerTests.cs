@@ -14,18 +14,20 @@ namespace SportsTests
         {
             //Arrange
             PlayerRepo pr;
+            Team team;
             Player jim;
 
             //Act
             pr = new PlayerRepo();
+            team = new Team();
             jim = new Player("Jim", 7);
 
-            //Team one not adding correctly
-            pr.AddPlayer(jim.TeamOne, jim);
-            int afteradd = jim.TeamOne.Count;
+            pr.AddPlayer(team.TeamOne, jim);
 
-            pr.RemovePlayer(jim.TeamOne, jim);
-            int afterremove = jim.TeamOne.Count;
+            int afteradd = team.TeamOne.Count;
+
+            pr.RemovePlayer(team.TeamOne, jim);
+            int afterremove = team.TeamOne.Count;
 
             //Assert
             Assert.AreEqual(afteradd, 1);
@@ -36,30 +38,65 @@ namespace SportsTests
         public void RemovePlayerByNameTests()
         {
             //Arrange
+            PlayerRepo pr;
+            Team team;
 
             //Act
+            pr = new PlayerRepo();
+            team = new Team();
+
+            pr.AddPlayer(team.TeamOne, "Jim", 7);
+
+            int afteradd = team.TeamOne.Count;
+
+            pr.RemovePlayer(team.TeamOne, "Jim", 7);
+            int afterremove = team.TeamOne.Count;
 
             //Assert
+            Assert.AreEqual(afteradd, 1);
+            Assert.AreEqual(afterremove, 0);
         }
 
         [TestMethod]
         public void AddPlayerTests()
         {
             //Arrange
+            PlayerRepo pr;
+            Team team;
+            Player jim;
 
             //Act
+            pr = new PlayerRepo();
+            team = new Team();
+            jim = new Player("Jim", 7);
+
+            int beforeadd = team.TeamOne.Count;
+            pr.AddPlayer(team.TeamOne, jim);
+            int afteradd = team.TeamOne.Count;
 
             //Assert
+            Assert.AreEqual(beforeadd, 0);
+            Assert.AreEqual(afteradd, 1);
         }
 
         [TestMethod]
         public void AddPlayerByNameTests()
         {
             //Arrange
+            PlayerRepo pr;
+            Team team;
 
             //Act
+            pr = new PlayerRepo();
+            team = new Team();
+
+            int beforeadd = team.TeamOne.Count;
+            pr.AddPlayer(team.TeamOne, "Jim", 7);
+            int afteradd = team.TeamOne.Count;
 
             //Assert
+            Assert.AreEqual(beforeadd, 0);
+            Assert.AreEqual(afteradd, 1);
         }
     }
 }
