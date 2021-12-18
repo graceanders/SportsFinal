@@ -18,12 +18,9 @@ namespace SportsLibrary
 
         public string jsonT;
 
-        //public Team() : this(new Sport()) { }
-        public Team()
-        {
-            this.TeamOne = new List<Player>();
-            this.TeamTwo = new List<Player>();
-        }
+        public Team() : this("The Bulls", 9) { }
+
+        //public Team() : this("Volleyball", 9, new Sport()) { }
 
         public Team(string Name, int Number)
         {
@@ -31,7 +28,14 @@ namespace SportsLibrary
             this.NumberOfPlayers = Number;
         }
 
-        public Team(Team t, Sport sport)
+        public Team(string Name, int Number, Sport sport)
+        {
+            this.TeamName = Name;
+            this.NumberOfPlayers = Number;
+            this.TeamsSport = sport;
+        }
+
+        public Team(Sport sport)
         {
             this.TeamsSport = sport;
         }
@@ -39,9 +43,9 @@ namespace SportsLibrary
 
     public class SerializableTeam: Team
     {
-        public void TeamsSave(Team t)
+        public string TeamsSave()
         {
-            string jsonT = SaveLoad.JsonSerialize<Team>(t);
+            return SaveLoad.JsonSerialize<Team>(this);
         }
 
         public void TeamLoad(string jsonTeam)

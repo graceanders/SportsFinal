@@ -11,7 +11,7 @@ namespace SportsLibrary
         public string SportName { get; set; }
         public string SportDescription { get; set; }
 
-        public Sport() { }
+        public Sport() :this("A Sport","This is a Sport :)") { }
 
 
         public Sport (string Name, string Description)
@@ -19,8 +19,6 @@ namespace SportsLibrary
             this.SportName = Name;
             this.SportDescription = Description;
         }
-
-     
     }
 
     public class SerializableSport : Sport

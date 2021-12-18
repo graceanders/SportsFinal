@@ -125,7 +125,7 @@ namespace SportsTests
 
 
         [TestMethod]
-        public void SportSaveAndLoadTest()
+        public void SportSaveTest()
         {
             //Arrange
             SportsRepo sr;
@@ -133,15 +133,34 @@ namespace SportsTests
             
             //Act
             sr = new SportsRepo();
-            b = new Basketball();
+            b = new Sport();
 
-            List<Sport> sports = sr.ListOfSports;
-            sr.SerializableSport.SportSave(); //jsonS
+            sr.SaveSport(); //jsonS
             string newtonsoft;
 
             //Assert
             newtonsoft = JsonConvert.SerializeObject(b);
             Assert.AreEqual(sr.jsonS, newtonsoft);
+        }
+
+        [TestMethod]
+        public void SportLoadTest()
+        {
+            //Arrange
+            SportsRepo sr;
+            Sport b;
+
+            //Act
+            sr = new SportsRepo();
+            b = new Sport();
+
+            string initialname = b.SportName;
+
+            sr.SaveSport();
+            sr.LoadSport();
+
+            //Assert
+            Assert.AreEqual(b.SportName, initialname);
         }
     }
     

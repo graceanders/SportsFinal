@@ -52,17 +52,17 @@ namespace SportsLibrary
 
         public virtual void AddTeamToSport(Team t, Sport sport)
         {
-            Team teamssport = new Team(t, sport);
+            Team teamssport = new Team(t.TeamName, t.NumberOfPlayers, sport);
         }
 
         public void SaveTeam()
         {
-            SerializableTeam.TeamsSave(this.teams);
+           jsonT = SerializableTeam.TeamsSave();
         }
 
         public void LoadTeam()
         {
-            SerializableTeam.TeamLoad(teams.jsonT);
+           SerializableTeam.TeamLoad(jsonT);
         }
         
     }

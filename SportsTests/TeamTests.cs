@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Newtonsoft.Json;
 using SportsLibrary;
 using System;
 using System.Collections.Generic;
@@ -106,23 +107,15 @@ namespace SportsTests
             //Arrange
             TeamsRepo tr;
             Sport h;
-            Team team;
             Team teamwithsport;
 
             //Act
             tr = new TeamsRepo();
             h = new Hockey();
-            team = new Team("Blackhawks", 20);
-            teamwithsport = new Team(team, h);
+            teamwithsport = new Team("Blackhawks", 20, h);
 
             //Assert
             Assert.AreEqual(teamwithsport.TeamsSport, h);
-        }
-
-        [TestMethod]
-        public void TeamSaveAndLoadTests()
-        {
-
         }
 
     }
