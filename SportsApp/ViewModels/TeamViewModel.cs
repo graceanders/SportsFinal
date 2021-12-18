@@ -77,25 +77,25 @@ namespace SportsApp.ViewModels
             }
         }
 
-        //public List<Player> TeamOne
-        //{
-        //    get { return this.team.TeamOne; }
-        //    set
-        //    {
-        //        this.team.TeamOne = value;
-        //        OnPropertyChanged();
-        //    }
-        //}
+        public List<Player> TeamOne
+        {
+            get { return team.TeamOne; }
+            set
+            {
+                team.TeamOne = value;
+                OnPropertyChanged();
+            }
+        }
 
-        //public List<Player> TeamTwo
-        //{
-        //    get { return this.team.TeamTwo; }
-        //    set
-        //    {
-        //        this.team.TeamTwo = value;
-        //        OnPropertyChanged();
-        //    }
-        //}
+        public List<Player> TeamTwo
+        {
+            get { return team.TeamTwo; }
+            set
+            {
+                team.TeamTwo = value;
+                OnPropertyChanged();
+            }
+        }
 
         private bool CanExecuteAddPlayerTeamOne(object parameter)
         {
@@ -107,7 +107,7 @@ namespace SportsApp.ViewModels
             playerone.Name = PlayerNameOne;
             playerone.PlayerNumber = PlayerNumberOne;
 
-            PlayerRepo.AddPlayer(team.TeamOne, playerone);
+            PlayerRepo.AddPlayer(TeamOne, playerone);
         }
 
         private bool CanExecuteRemovePlayerTeamOne(object paramater)
@@ -117,10 +117,10 @@ namespace SportsApp.ViewModels
 
         private void ExecuteRemovePlayerTeamOne(object parameter)
         {
-            if (this.PlayerNameOne != "")
-            {
-                PlayerRepo.RemovePlayer(team.TeamOne, this.PlayerNameOne, this.PlayerNumberOne);
-            }
+            playerone.Name = PlayerNameOne;
+            playerone.PlayerNumber = PlayerNumberOne;
+
+            PlayerRepo.RemovePlayer(TeamOne, playerone);
         }
 
         private bool CanExecuteAddPlayerTeamTwo(object parameter)
@@ -130,10 +130,10 @@ namespace SportsApp.ViewModels
 
         private void ExecuteAddPlayerTeamTwo(object parameter)
         {
-            if (this.PlayerNameTwo != "")
-            {
-                PlayerRepo.AddPlayer(team.TeamTwo, this.PlayerNameOne, this.PlayerNumberOne);
-            }
+            playertwo.Name = PlayerNameTwo;
+            playertwo.PlayerNumber = PlayerNumberTwo;
+
+            PlayerRepo.AddPlayer(TeamOne, playertwo);
         }
 
         private bool CanExecuteRemovePlayerTeamTwo(object parameter)
@@ -143,21 +143,10 @@ namespace SportsApp.ViewModels
 
         private void ExecuteRemovePlayerTeamTwo(object parameter)
         {
-            if (this.PlayerNameTwo != "")
-            {
-                PlayerRepo.RemovePlayer(team.TeamTwo, this.PlayerNameOne, this.PlayerNumberOne);
-            }
-        }
+            playertwo.Name = PlayerNameTwo;
+            playertwo.PlayerNumber = PlayerNumberTwo;
 
-
-        private bool CanExecuteTest(object parameter)
-        {
-            return true;
-        }
-
-        private void ExecuteTest(object parameter)
-        {
-
+            PlayerRepo.RemovePlayer(TeamOne, playertwo);
         }
     }
 }

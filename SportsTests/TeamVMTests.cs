@@ -30,5 +30,27 @@ namespace SportsTests
             //Assert
             Assert.AreEqual(TeamViewModel.team.TeamOne[0].Name, TeamViewModel.PlayerNameOne);
         }
+
+        [TestMethod]
+        public void ExecuteRemovePlayerTest()
+        {
+            //Arrange
+
+            //Act
+            TeamViewModel.PlayerNameOne = "Tim";
+            TeamViewModel.PlayerNumberOne = 8;
+            TeamViewModel.AddPlayerTeamOne.Execute(null);
+
+            int beforeremove = TeamViewModel.team.TeamOne.Count;
+
+            TeamViewModel.RemovePlayerTeamOne.Execute(null);
+
+            int afterremove = TeamViewModel.team.TeamOne.Count;
+
+            //Assert
+            Assert.AreEqual(beforeremove, 1);
+            Assert.AreEqual(afterremove, 0);
+            Assert.IsFalse(TeamViewModel.team.TeamOne.Contains(TeamViewModel.playerone));
+        }
     }
 }
