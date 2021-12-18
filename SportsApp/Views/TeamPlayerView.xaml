@@ -27,14 +27,14 @@
             <TextBox x:Name="PlayerNumberOnetb" HorizontalAlignment="Left" Margin="163,83,0,0" Text="{Binding Path= PlayerNumberTwo, Mode=OneWay}" TextWrapping="Wrap" VerticalAlignment="Top" Background="White" Height="31" Width="52" TextAlignment="Left"/>
             <Label Content="Player Name" HorizontalAlignment="Left" Margin="60,57,0,0" VerticalAlignment="Top"/>
             <Label Content="Player #" HorizontalAlignment="Left" Margin="163,58,0,0" VerticalAlignment="Top"/>
-            <Button x:Name="AddToOnebtn" Content="+" HorizontalAlignment="Left" Margin="330,-2,0,0" VerticalAlignment="Top" FontSize="36" Command="{Binding Path= AddPlayerTeamOneCommand}" Height="51" BorderBrush="{x:Null}"/>
+            <Button x:Name="AddToOnebtn" Content="+" HorizontalAlignment="Left" Margin="330,-2,0,0" VerticalAlignment="Top" FontSize="36" Command="{Binding Path= AddPlayerTeamOne}" Height="51" BorderBrush="{x:Null}"/>
             <TextBox x:Name="PlayerNameTwotb" HorizontalAlignment="Left" Margin="450,79,0,0" Text="{Binding Path= PlayerNameTwo, Mode=OneWay}" TextWrapping="Wrap" VerticalAlignment="Top" Background="White" Height="31" Width="96" TextAlignment="Left"/>
             <TextBox x:Name="PlayerNumberTwotb" HorizontalAlignment="Left" Margin="553,79,0,0" Text="{Binding Path= PlayerNumberTwo, Mode=OneWay}" TextWrapping="Wrap" VerticalAlignment="Top" Background="White" Height="31" Width="52" TextAlignment="Left"/>
             <Label Content="Player Name" HorizontalAlignment="Left" Margin="450,53,0,0" VerticalAlignment="Top"/>
             <Label Content="Player #" HorizontalAlignment="Left" Margin="553,54,0,0" VerticalAlignment="Top"/>
-            <Button x:Name="AddToTwobtn" Content="+" HorizontalAlignment="Left" Margin="721,-1,0,0" VerticalAlignment="Top" FontSize="36" Command="{Binding Path= AddPlayerTeamTwoCommand}" Height="51" BorderBrush="{x:Null}"/>
-            <Button x:Name="RemoveOnebtn" Content="-" HorizontalAlignment="Left" Margin="60,-1,0,0" VerticalAlignment="Top" FontSize="36" Command="{Binding Path= RemovePlayerTeamOneCommand}" Height="51" BorderBrush="{x:Null}"/>
-            <Button x:Name="RemoveTwobtn" Content="-" HorizontalAlignment="Left" Margin="450,-1,0,0" VerticalAlignment="Top" FontSize="36" Command="{Binding Path= RemovePlayerTeamTwoCommand}" Height="51" BorderBrush="{x:Null}"/>
+            <Button x:Name="AddToTwobtn" Content="+" HorizontalAlignment="Left" Margin="721,-1,0,0" VerticalAlignment="Top" FontSize="36" Command="{Binding Path= AddPlayerTeamTwo}" Height="51" BorderBrush="{x:Null}"/>
+            <Button x:Name="RemoveOnebtn" Content="-" HorizontalAlignment="Left" Margin="60,-1,0,0" VerticalAlignment="Top" FontSize="36" Command="{Binding Path= RemovePlayerTeamOne}" Height="51" BorderBrush="{x:Null}"/>
+            <Button x:Name="RemoveTwobtn" Content="-" HorizontalAlignment="Left" Margin="450,-1,0,0" VerticalAlignment="Top" FontSize="36" Command="{Binding Path= RemovePlayerTeamTwo}" Height="51" BorderBrush="{x:Null}"/>
 
 
         </Grid>

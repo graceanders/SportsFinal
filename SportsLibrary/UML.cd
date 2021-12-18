@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="SportsLibrary.Basketball">
+    <Position X="6" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Basketball.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SportsLibrary.Hockey">
+    <Position X="6" Y="2" Width="1.5" />
+    <InheritanceLine Type="SportsLibrary.Sport" FixedFromPoint="true">
+      <Path>
+        <Point X="5.5" Y="1.625" />
+        <Point X="5.74" Y="1.625" />
+        <Point X="5.74" Y="2.616" />
+        <Point X="6" Y="2.616" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Hockey.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SportsLibrary.Player">
+    <Position X="14.5" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Player.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SportsLibrary.PlayerRepo">
+    <Position X="14.5" Y="4.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAAAABAAgAgAAAAAA=</HashCode>
+      <FileName>PlayerRepo.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SportsLibrary.SaveLoad">
+    <Position X="8.75" Y="6.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>SaveLoad.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SportsLibrary.Sport">
+    <Position X="3.5" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Sport.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SportsLibrary.SerializableSport">
+    <Position X="3.5" Y="2.75" Width="1.75" />
+    <InheritanceLine Type="SportsLibrary.Sport" FixedFromPoint="true">
+      <Path>
+        <Point X="4.375" Y="2.497" />
+        <Point X="4.375" Y="2.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Sport.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SportsLibrary.SportsRepo">
+    <Position X="5.5" Y="3.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAQIAIAAAAAAAAgIBAAIAAAAAIACAAASAAAAAAA=</HashCode>
+      <FileName>SportsRepo.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SportsLibrary.Team">
+    <Position X="9" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAEAAAAAABAAAAACAAAIAAAAAAgAA=</HashCode>
+      <FileName>Team.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SportsLibrary.SerializableTeam">
+    <Position X="11.5" Y="0.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Team.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SportsLibrary.TeamsRepo">
+    <Position X="11.25" Y="4.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAgBAAAAACACAAEAAAAIACAABAgAAAAAAAA=</HashCode>
+      <FileName>TeamsRepo.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="SportsLibrary.IPerson">
+    <Position X="17" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IPerson.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SportsLibrary.IPlayerRepo">
+    <Position X="14.5" Y="3" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>IPlayerRepo.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SportsLibrary.ISport">
+    <Position X="3.5" Y="4.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ISport.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SportsLibrary.ISportsRepo">
+    <Position X="3.5" Y="6.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAIAIAAAAAAAAgIAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>ISportsRepo.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SportsLibrary.ITeam">
+    <Position X="11.5" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAABAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>ITeam.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SportsLibrary.ITeamRepo">
+    <Position X="9" Y="4" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACACAAEAAAAIAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>ITeamRepo.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SportsLibrary.IPlayer">
+    <Position X="17" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IPlayer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

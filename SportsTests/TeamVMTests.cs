@@ -18,13 +18,6 @@ namespace SportsTests
         }
 
         [TestMethod]
-        public void GettingValuesTest()
-        {
-            
-        }
-
-
-        [TestMethod]
         public void ExecuteAddPlayerTest()
         {
             //Arrange
