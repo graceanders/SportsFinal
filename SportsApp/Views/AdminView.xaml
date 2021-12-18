@@ -22,12 +22,12 @@
         <Rectangle HorizontalAlignment="Left" Height="434" Margin="420,0,0,0" VerticalAlignment="Center" Width="350" Fill="Gainsboro"/>
         <Label Content="Sport" HorizontalAlignment="Left" Margin="155,0,0,0" VerticalAlignment="Top" FontSize="36"/>
         <Label Content="Teams" HorizontalAlignment="Left" Margin="541,0,0,0" VerticalAlignment="Top" FontSize="36"/>
-        <Button x:Name="SaveSportbtn" Content="Save" HorizontalAlignment="Left" Margin="115,374,0,0" VerticalAlignment="Top" FontSize="22" Command="{Binding Path= SaveSports}" Background="White" Width="65"/>
-        <Button x:Name="LoadSportbtn" Content="Load" HorizontalAlignment="Left" Margin="235,374,0,0" VerticalAlignment="Top" FontSize="22" Command="{Binding Path= LoadSports}" Background="White" Width="65"/>
+        <Button x:Name="SaveSportbtn" Content="Save" HorizontalAlignment="Left" Margin="115,374,0,0" VerticalAlignment="Top" FontSize="22" Command="{Binding SaveSports}" Background="White" Width="65"/>
+        <Button x:Name="LoadSportbtn" Content="Load" HorizontalAlignment="Left" Margin="235,374,0,0" VerticalAlignment="Top" FontSize="22" Command="{Binding LoadSports}" Background="White" Width="65"/>
 
         <TextBox x:Name="SportNametb" HorizontalAlignment="Left" Margin="52,78,0,0" Text="{Binding Path= SportName, Mode=OneWay}" TextWrapping="Wrap" VerticalAlignment="Top" Background="White" Height="31" Width="117" TextAlignment="Left"/>
         <TextBox x:Name="SportDescriptiontb" HorizontalAlignment="Left" Margin="180,78,0,0" Text="{Binding Path= SportDescription, Mode=OneWay}" TextWrapping="Wrap" VerticalAlignment="Top" Background="White" Height="31" Width="180" TextAlignment="Left"/>
-        <Button x:Name="AddSportbtn" Content="+" HorizontalAlignment="Left" Margin="340,-1,0,0" VerticalAlignment="Top" FontSize="36" Command="{Binding Path= AddSport}" Height="51" BorderBrush="{x:Null}"/>
+        <Button x:Name="AddSportbtn" Content="+" HorizontalAlignment="Left" Margin="340,-1,0,0" VerticalAlignment="Top" FontSize="36" Command="{Binding AddSport}" Height="51" BorderBrush="{x:Null}"/>
         <Label Content="Name" HorizontalAlignment="Left" Margin="52,52,0,0" VerticalAlignment="Top" Width="51"/>
         <Label Content="Description" HorizontalAlignment="Left" Margin="180,53,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="TeamNametb" HorizontalAlignment="Left" Margin="442,77,0,0" Text="{Binding Path= TeamName, Mode=OneWay}" TextWrapping="Wrap" VerticalAlignment="Top" Background="White" Height="31" Width="102" TextAlignment="Left"/>
@@ -35,13 +35,13 @@
         <Label Content="Name" HorizontalAlignment="Left" Margin="442,51,0,0" VerticalAlignment="Top" Width="44"/>
         <Label Content="# of Players" HorizontalAlignment="Left" Margin="553,52,0,0" VerticalAlignment="Top"/>
         <Label Content="Which Sport" HorizontalAlignment="Left" Margin="632,52,0,0" VerticalAlignment="Top" Width="123"/>
-        <Button x:Name="AddTeambtn" Content="+" HorizontalAlignment="Left" Margin="730,-1,0,0" VerticalAlignment="Top" FontSize="36" Command="{Binding Path= AddTeam}" Height="51" BorderBrush="{x:Null}"/>
+        <Button x:Name="AddTeambtn" Content="+" HorizontalAlignment="Left" Margin="730,-1,0,0" VerticalAlignment="Top" FontSize="36" Command="{Binding AddTeam}" Height="51" BorderBrush="{x:Null}"/>
 
-        <Button x:Name="SaveTeambtn" Content="Save" HorizontalAlignment="Left" Margin="506,374,0,0" VerticalAlignment="Top" FontSize="22" Command="{Binding Path= SaveTeams}" Background="White" Width="64"/>
-        <Button x:Name="LoadTeambtn" Content="Load" HorizontalAlignment="Left" Margin="626,374,0,0" VerticalAlignment="Top" FontSize="22" Command="{Binding Path= LoadTeams}" Background="White" Width="64"/>
+        <Button x:Name="SaveTeambtn" Content="Save" HorizontalAlignment="Left" Margin="506,374,0,0" VerticalAlignment="Top" FontSize="22" Command="{Binding SaveTeams}" Background="White" Width="64"/>
+        <Button x:Name="LoadTeambtn" Content="Load" HorizontalAlignment="Left" Margin="626,374,0,0" VerticalAlignment="Top" FontSize="22" Command="{Binding LoadTeams}" Background="White" Width="64"/>
         <TextBox x:Name="TeamWhichSporttb" HorizontalAlignment="Left" Margin="632,77,0,0" Text="{Binding Path= WhichSport, Mode=OneWay}" TextWrapping="Wrap" VerticalAlignment="Top" Background="White" Height="31" Width="115" TextAlignment="Left"/>
-        <Button x:Name="RemoveTeambtn" Content="-" HorizontalAlignment="Left" Margin="435,-1,0,0" VerticalAlignment="Top" FontSize="36" Command="{Binding Path= RemoveTeam}" Height="51" BorderBrush="{x:Null}"/>
-        <Button x:Name="RemoveSportbtn" Content="-" HorizontalAlignment="Left" Margin="50,-1,0,0" VerticalAlignment="Top" FontSize="36" Command="{Binding Path= RemoveSport}" Height="51" BorderBrush="{x:Null}"/>
+        <Button x:Name="RemoveTeambtn" Content="-" HorizontalAlignment="Left" Margin="435,-1,0,0" VerticalAlignment="Top" FontSize="36" Command="{Binding RemoveTeam}" Height="51" BorderBrush="{x:Null}"/>
+        <Button x:Name="RemoveSportbtn" Content="-" HorizontalAlignment="Left" Margin="50,-1,0,0" VerticalAlignment="Top" FontSize="36" Command="{Binding RemoveSport}" Height="51" BorderBrush="{x:Null}"/>
         <DataGrid x:Name="Sportsdg" Margin="55,124,440,100" ItemsSource="{Binding ListOfSports}"/>
         <DataGrid x:Name="Teamsdg" Margin="445,124,50,100" ItemsSource="{Binding ListOfTeams}"/>
 
