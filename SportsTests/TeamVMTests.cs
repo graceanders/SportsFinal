@@ -18,6 +18,13 @@ namespace SportsTests
         }
 
         [TestMethod]
+        public void GettingValuesTest()
+        {
+            
+        }
+
+
+        [TestMethod]
         public void ExecuteAddPlayerTest()
         {
             //Arrange
@@ -28,7 +35,7 @@ namespace SportsTests
             TeamViewModel.AddPlayerTeamOne.Execute(null);
 
             //Assert
-            Assert.AreEqual(TeamViewModel.team.TeamOne[0].Name, TeamViewModel.PlayerNameOne);
+            Assert.AreEqual(TeamViewModel.TeamOne[0].Name, TeamViewModel.PlayerNameOne);
         }
 
         [TestMethod]
@@ -45,12 +52,12 @@ namespace SportsTests
 
             TeamViewModel.RemovePlayerTeamOne.Execute(null);
 
-            int afterremove = TeamViewModel.team.TeamOne.Count;
+            int afterremove = TeamViewModel.TeamOne.Count;
 
             //Assert
             Assert.AreEqual(beforeremove, 1);
             Assert.AreEqual(afterremove, 0);
-            Assert.IsFalse(TeamViewModel.team.TeamOne.Contains(TeamViewModel.playerone));
+            Assert.IsFalse(TeamViewModel.TeamOne.Contains(TeamViewModel.playerone));
         }
     }
 }

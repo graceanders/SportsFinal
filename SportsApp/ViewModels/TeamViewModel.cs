@@ -108,6 +108,8 @@ namespace SportsApp.ViewModels
             playerone.PlayerNumber = PlayerNumberOne;
 
             PlayerRepo.AddPlayer(TeamOne, playerone);
+
+            OnPropertyChanged("TeamOne");
         }
 
         private bool CanExecuteRemovePlayerTeamOne(object paramater)
@@ -121,6 +123,8 @@ namespace SportsApp.ViewModels
             playerone.PlayerNumber = PlayerNumberOne;
 
             PlayerRepo.RemovePlayer(TeamOne, playerone);
+
+            OnPropertyChanged("TeamOne");
         }
 
         private bool CanExecuteAddPlayerTeamTwo(object parameter)
@@ -134,6 +138,8 @@ namespace SportsApp.ViewModels
             playertwo.PlayerNumber = PlayerNumberTwo;
 
             PlayerRepo.AddPlayer(TeamOne, playertwo);
+
+            OnPropertyChanged("TeamTwo");
         }
 
         private bool CanExecuteRemovePlayerTeamTwo(object parameter)
@@ -147,6 +153,8 @@ namespace SportsApp.ViewModels
             playertwo.PlayerNumber = PlayerNumberTwo;
 
             PlayerRepo.RemovePlayer(TeamOne, playertwo);
+
+            OnPropertyChanged("TeamTwo");
         }
     }
 }
