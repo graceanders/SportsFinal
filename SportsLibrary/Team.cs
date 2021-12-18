@@ -18,7 +18,11 @@ namespace SportsLibrary
 
         public string jsonT;
 
-        public Team() : this("The Bulls", 9) { }
+        public Team() : this("The Bulls", 9) 
+        {
+            TeamOne = new List<Player>();
+            TeamTwo = new List<Player>();
+        }
 
         //public Team() : this("Volleyball", 9, new Sport()) { }
 

@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SportsApp\SportsApp.csproj" />
     <ProjectReference Include="..\SportsLibrary\SportsLibrary.csproj" />
   </ItemGroup>
 

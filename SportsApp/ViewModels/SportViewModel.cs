@@ -6,25 +6,25 @@ using System.Windows.Input;
 
 namespace SportsApp.ViewModels
 {
-    class SportViewModel : BaseViewModel
+    public class SportViewModel : BaseViewModel
     {
         SportsRepo SportsRepo;
 
         TeamsRepo TeamsRepo;
 
-        public ICommand AddSportCommand { get; set; }
-        public ICommand RemoveSportCommand { get; set; }
+        public ICommand AddSport { get; set; }
+        public ICommand RemoveSport { get; set; }
 
-        public ICommand SaveSportsCommand { get; set; }
-        public ICommand LoadSportsCommand { get; set; }
+        public ICommand SaveSports { get; set; }
+        public ICommand LoadSports { get; set; }
 
-        public ICommand AddTeamCommand { get; set; }
-        public ICommand RemoveTeamCommand { get; set; }
+        public ICommand AddTeam { get; set; }
+        public ICommand RemoveTeam { get; set; }
 
-        public ICommand AddTeamsToSportsCommand { get; set; }
+        public ICommand AddTeamToSport { get; set; }
 
-        public ICommand SaveTeamsCommand { get; set; }
-        public ICommand LoadTeamsCommand { get; set; }
+        public ICommand SaveTeams { get; set; }
+        public ICommand LoadTeams { get; set; }
 
         bool SportsLoadExecutable;
         bool TeamsLoadExecutable;
@@ -32,17 +32,17 @@ namespace SportsApp.ViewModels
         public SportViewModel(SportsRepo sr, TeamsRepo tr)
         {
             this.SportsRepo = sr;
-            AddSportCommand = new BasicCommand(ExecuteAddSport, CanExecuteAddSport);
-            RemoveSportCommand = new BasicCommand(ExecuteRemoveSport, CanExecuteRemoveSport);
-            SaveSportsCommand = new BasicCommand(ExecuteSaveSport, CanExecuteSaveSport);
-            LoadSportsCommand = new BasicCommand(ExecuteLoadSport, CanExecuteLoadSport);
+            AddSport = new BasicCommand(ExecuteAddSport, CanExecuteAddSport);
+            RemoveSport = new BasicCommand(ExecuteRemoveSport, CanExecuteRemoveSport);
+            SaveSports = new BasicCommand(ExecuteSaveSport, CanExecuteSaveSport);
+            LoadSports = new BasicCommand(ExecuteLoadSport, CanExecuteLoadSport);
 
             this.TeamsRepo = tr;
-            AddTeamCommand = new BasicCommand(ExecuteAddTeam, CanExecuteAddTeam);
-            RemoveTeamCommand = new BasicCommand(ExecuteRemoveTeam, CanExecuteRemoveTeam);
-            AddTeamsToSportsCommand = new BasicCommand(ExecuteAddTeamsToSports, CanExecuteAddTeamsToSports);
-            SaveTeamsCommand = new BasicCommand(ExecuteSaveTeams, CanExecuteSaveTeams);
-            LoadTeamsCommand = new BasicCommand(ExecuteLoadTeams, CanExecuteLoadTeams);
+            AddTeam = new BasicCommand(ExecuteAddTeam, CanExecuteAddTeam);
+            RemoveTeam = new BasicCommand(ExecuteRemoveTeam, CanExecuteRemoveTeam);
+            AddTeamToSport = new BasicCommand(ExecuteAddTeamsToSports, CanExecuteAddTeamsToSports);
+            SaveTeams = new BasicCommand(ExecuteSaveTeams, CanExecuteSaveTeams);
+            LoadTeams = new BasicCommand(ExecuteLoadTeams, CanExecuteLoadTeams);
 
         }
 
